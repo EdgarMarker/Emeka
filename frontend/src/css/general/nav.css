@@ -1,0 +1,274 @@
+header{
+    background-color: var(--color-secondary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+#inner__header{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
+}
+
+#logo__main img{
+    height: 38px;
+    width: auto;
+}
+
+#inner__header li, #inner__header a{
+    margin-bottom: 0px;
+}
+
+.nav__ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__ul li a{
+    color: var(--color-white);
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 1;
+    height: 60px;
+    padding: 0 20px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.nav__ul li a:hover{
+    color: var(--color-accent)
+}
+
+#inner__header .nav__ul li a.active{
+    color: var(--color-accent);
+    pointer-events: none;
+}
+
+#inner__header .nav__ul li a::before{
+    content:"";
+    position: absolute;
+    width: calc(100% - 40px);
+    height: 3px;
+    background-color: var(--color-accent);
+    bottom: 0;
+    left: 20px;
+    display: none;
+}
+
+#inner__header .nav__ul li a.active::before{
+    display: block;
+}
+
+.cta__msn{
+    color: var(--color-white);
+    border: 1px solid var(--color-accent);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 1;
+    height: 35px;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta__msn::before{
+    content: "";
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url(/images/whatsapp.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-right: 5px;
+}
+
+#mobile__trigger{
+    display: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 100;
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile__trigger input{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#mobile__trigger span{
+    width: 26px;
+    height: 2px;
+    background-color: var(--color-accent);
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    z-index: 0;
+    transform-origin: top left;
+    transition: transform 0.3s ease-in-out, left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+#mobile__trigger span:nth-child(2){
+    top: calc(50% - 1px);
+}
+
+#mobile__trigger span:nth-child(3){
+    top: unset;
+    transform-origin: bottom left;
+    bottom: 15px;
+}
+
+#mobile__trigger.active{
+    transform: rotate(90deg) scale(1.2);
+}
+
+#mobile__trigger.active span:nth-child(1){
+    transform: rotate(45deg);
+    left: 17px;
+}
+
+#mobile__trigger.active span:nth-child(2){
+    opacity: 0;
+}
+
+#mobile__trigger.active span:nth-child(3){
+    transform: rotate(-45deg);
+    left: 17px;
+}
+
+#mobile__menu{
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30vw;
+    min-width: 250px;
+    height: 100dvh;
+    background-color: var(--color-secondary);
+    transform: translateX(100vw);
+    z-index: 99;
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile__menu.show{
+    transform: translateX(0);
+}
+
+#mobile__active{
+    display: none;
+    position: fixed;
+    z-index: 98;
+    background-color: var(--color-black);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#mobile__active.show{
+    opacity: 0.8;
+    pointer-events: all;
+}
+
+#mobile__menu ul{
+    width: 100%;
+    flex-direction: column;
+}
+
+#mobile__menu ul li{
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+#mobile__menu ul li a{
+    margin-bottom: 0px;
+    justify-content: flex-start;
+    padding-left: 10%;
+}
+
+
+
+
+
+
+
+/*  Escritorio intermedio  */
+@media only screen and (max-width: 1200px) {
+
+    #logo__main img{
+        height: 30px;
+    }
+
+    #inner__header > .nav__ul li a{
+        font-size: 13px;
+        padding: 0 10px;
+    }
+}
+
+
+
+
+
+
+
+/*  Tableta  */
+@media only screen and (max-width: 1024px) {
+
+    #inner__header > .nav__ul{
+        display: none;
+    }
+
+    #inner__header > .cta__msn{
+        display: none;
+    }
+
+    #mobile__trigger{
+        display: block;
+    }
+
+    #mobile__active{
+        display: block;
+    }
+
+    #mobile__menu{
+        display: flex;
+    }
+    #mobile__menu .cta__msn{
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+  }

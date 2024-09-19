@@ -1,0 +1,28 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markerbranding/emeka.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-fetch": "^4.0.1",
+    "@11ty/eleventy-img": "^4.0.2",
+    "@11ty/eleventy-plugin-webc": "^0.11.2",
+    "@portabletext/to-html": "^2.0.13",
+    "@sanity/client": "^6.21.3",
+    "dotenv": "^16.4.5",
+    "gsap": "file:gsap-bonus.tgz",
+    "luxon": "^3.5.0"
+  }
+}

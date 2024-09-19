@@ -1,0 +1,4 @@
+{
+    "primary": "http://localhost:8080/",
+    "associatedSites": ["http://localhost:3333/"]
+  }

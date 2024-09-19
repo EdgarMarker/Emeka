@@ -1,0 +1,30 @@
+<li class="card card__producto">
+  
+  
+  
+  {% if item.categories %}
+    <span class="card__category">
+      {% for category in item.categories %}
+        <a href="/productos/categorias/{{category | slugify}}">{{ category }}{% if not loop.last %}, {% endif %}</a> /
+      {% endfor %}
+    </span>
+  {% else %}
+    <span class="card__category">Sin categoría/</span>
+  {% endif %}
+
+  <h2><a href="/productos/{{ item.slug.current }}">{{ item.title }}</a></h2>
+
+  {% if item.mainImage %}
+  <a class="card__pic" href="/productos/{{ item.slug.current }}">
+    <picture>
+        {% for format, images in item.mainImage %}
+        <source srcset="{{ images | srcset }}" sizes="(max-width: 600px) 100vw, 600px" type="image/{{ format }}">
+        {% endfor %}
+        <img src="{{ item.mainImage.jpeg[0].url }}" alt="{{ item.mainImageAlt }}">
+    </picture>
+    {% else %}
+      <p>No image available</p>
+    {% endif %}
+  </a>
+  <a class="btn" href="/productos/{{ item.slug.current }}">Más información</a>
+</li>

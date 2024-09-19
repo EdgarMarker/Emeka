@@ -1,0 +1,20 @@
+#section__aviso{
+    .column__1{
+        align-items: center;
+    }
+    h1{
+        font-size: var(--size-lg);
+        color: var(--color-primary);
+        font-weight: 400;
+        margin-bottom: 4%;
+    }
+    h2{
+        font-size: 30px;
+        text-transform: unset;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    p{
+        font-size: 22px;
+    }
+}

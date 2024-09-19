@@ -1,0 +1,25 @@
+<header id="header" class="pad__lr__5">
+    {% for marca in empresa %}
+    <div id="inner__header">
+        <a id="logo__main" href="/">
+            <img src="{{ marca.brandLogo.media.url }}" alt="{{ marca.brandName }} - {{ marca.brandIndustry }}" />
+        </a>
+
+        {% include 'main-nav.njk' %}
+
+        <a class="cta__msn" href="https://wa.me/521{{ marca.brandPhone }}" target="_blank">Mensaje</a>
+        
+        <div id="mobile__trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    
+    <div id="mobile__menu">
+        {% include 'main-nav.njk' %}
+        <a class="cta__msn" href="https://wa.me/521{{ marca.brandPhone }}" target="_blank">Mensaje</a>
+    </div>
+    <div id="mobile__active"></div>
+    {% endfor %}
+</header>

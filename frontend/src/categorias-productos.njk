@@ -1,0 +1,33 @@
+---
+eleventyComputed:
+    title: "{{ productos[0].titleseo }}"
+    description: "{{ productos[0].descseo }}"
+    keywords: "{{ productos[0].keyseo }}"
+layout: base.njk
+
+permalink: "/productos/categorias/index.html"
+---
+
+<div data-barba="container" data-barba-namespace="categorias-productos" data-css="productos" data-js="productos">
+
+
+    <section id="section__hero" class="pad__all__5">
+        <div class="column__1">
+            <h1>Categorías de productos</h1>
+        </div>
+    </section>
+
+
+    <section id="section__productos" class="pad__all__5">
+        <div class="column__1">
+            <ul role="list" class="listado__x3 width__100">
+                {%- for categoria in collections.categorias -%}
+                    <a href="/productos/categorias/{{ categoria.slug.current }}">{{ categoria.title }}</a>
+                {%- endfor %}
+            </ul>
+        </div>
+    </section>
+
+
+</div>
+

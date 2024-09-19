@@ -1,0 +1,44 @@
+<footer>
+    <div class="column__1 listado__x4">
+        <div class="footer__column">
+            <h2>Mapa del sitio</h2>
+            {% include "main-nav.njk" %}
+        </div>
+        <div class="footer__column">
+            <h2>Datos de contacto</h2>
+            <ul>
+                {% for item in empresa %}
+                <li>T: <a class="tel__text" href="tel:+521{{ item.brandPhone }}">{{ item.brandPhone }}</a></li>
+                <li>C: <a href="mailto:{{ item.brandEmail }}">{{ item.brandEmail }}</a></li>
+                <li><a href="{{ item.brandAddressUrl }}" target="_blank">{{ item.brandAddress }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer__column">
+            <h2>Síguenos</h2>
+            <ul>
+                {% for item in social %}
+                <li><a href="{{ item.facebook }}" target="_blank">Facebook</a></li>
+                <li><a href="{{ item.instagram }}" target="_blank">Instagram</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="footer__column">
+            {% for marca in empresa %}
+                <a class="logo__footer" href="/">
+                    <img src="{{ marca.footLogo.media.url }}" alt="{{ marca.brandName }} - {{ marca.brandIndustry }}" />
+                </a>
+            {% endfor %}
+            {% for item in aviso %}
+                <a href="/{{item.slug.current}}">Aviso de privacidad</a>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="inner__footer" class="column__1">
+        <span>
+            {% for marca in empresa %}
+                {{marca.brandName}}
+            {% endfor %}
+            © Todos los derechos reservados | Sitio web creado por <a href="https://marker.com.mx" target="_blank">MARKER branding</a></span>
+    </div>
+</footer>

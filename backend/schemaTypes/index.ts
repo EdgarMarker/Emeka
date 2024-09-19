@@ -1,0 +1,16 @@
+import blockContent from './blockContent'
+import category from './category'
+import products from './products'
+import author from './author'
+import empresa from './empresa'
+import social from './social'
+import inicio from './inicio'
+import nosotros from './nosotros'
+import productos from './productos'
+import blog from './blog'
+import contact from './contact'
+import aviso from './aviso'
+import post from './post'
+import postCategory from './post-category'
+
+export const schemaTypes = [inicio, nosotros, productos, blog, contact, aviso, products, author, category, blockContent, social, empresa, post, postCategory]

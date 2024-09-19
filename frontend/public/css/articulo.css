@@ -1,0 +1,45 @@
+#inner__header .nav__ul li:nth-child(4) a{
+    color: var(--color-accent);
+}
+
+#inner__header .nav__ul li:nth-child(4) a::before{
+    display: block;
+}
+
+
+
+#section__hero{
+    background-color: var(--color-secondary);
+}
+
+h1{
+    font-size: var(--size-2xl);
+    color: var(--color-white);
+}
+
+.categoria_articulo{
+    font-size: var(--size-sm);
+    color: var(--color-accent);
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.categoria_articulo a{
+    font-size: inherit;
+    font-weight: 400;
+}
+
+#section__main__image{
+    position: relative;
+}
+
+#section__main__image::before{
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: var(--color-secondary);
+    top: 0;
+    left: 0;
+}

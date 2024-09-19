@@ -1,0 +1,143 @@
+footer{
+    background-color: var(--color-secondary);
+    padding: 5% 5% 50px;
+}
+
+.footer__column{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.footer__column h2{
+    color: var(--color-accent);
+    font-size: var(--size-xs);
+    text-transform: uppercase;
+}
+
+.footer__column a{
+    color: var(--color-white);
+    font-size: var(--size-xs);
+    padding: 0;
+    text-transform: unset;
+    display: block;
+}
+
+.footer__column a:hover{
+    color: var(--color-accent);
+    transition: color 0.3s ease-in-out;
+}
+
+.footer__column ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.footer__column li{
+    color: var(--color-accent);
+    font-size: var(--size-xs);
+    margin-bottom: 0px;
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.footer__column li a{
+    color: var(--color-white);
+    font-size: var(--size-xs);
+    line-height: 1.6;
+    text-transform: unset;
+    margin-bottom: 0px;
+    padding: 0px;
+    height: auto;   
+}
+
+.footer__column li a.active{
+    color: var(--color-accent);
+    pointer-events: none;
+}
+
+.tel__text > div:nth-child(3), .tel__text > div:nth-child(6){
+    margin-right: 5px;
+}
+
+.logo__footer{
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+}
+
+#inner__footer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 5%;
+}
+
+#inner__footer span{
+    color: var(--color-white);
+    font-size: 14px;
+}
+
+#inner__footer a{
+    color: var(--color-accent);
+    font-size: 14px;
+}
+
+#inner__footer a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+/*  Tableta  */
+@media only screen and (max-width: 1024px) {
+
+    footer{
+        background-color: var(--color-secondary);
+        padding: 10% 5% 50px;
+    }
+
+    footer .column__1{
+        row-gap: 80px;
+        column-gap: 50px;
+    }
+
+}
+
+
+
+
+
+
+
+
+/*  Móvil  */
+@media only screen and (max-width: 768px) {
+
+    footer{
+        background-color: var(--color-secondary);
+        padding: 10% 5% 20px;
+    }
+
+    footer .column__1{
+        gap: 50px;
+    }
+
+}

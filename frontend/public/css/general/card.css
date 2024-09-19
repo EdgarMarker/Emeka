@@ -1,0 +1,9 @@
+.card__producto{
+    background-color: #fff;
+    padding: 5%;
+    border-radius: 10px;
+}
+
+.card__producto h2{
+    font-size: 1vw;
+}

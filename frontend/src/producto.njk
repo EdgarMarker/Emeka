@@ -1,0 +1,43 @@
+---
+eleventyComputed:
+    title: "{{ products[0].titleseo }}"
+    description: "{{ productos[0].descseo }}"
+    keywords: "{{ productos[0].keyseo }}"
+layout: base.njk
+pagination:
+  data: collections.productos
+  size: 1
+  alias: producto
+permalink: "/productos/{{ producto.slug.current }}/"
+---
+
+<div data-barba="container" data-barba-namespace="producto" data-css="producto" data-js="producto">
+
+  <section id="section__hero" class="pad__lr__5 pad__top__10">
+    <div class="column__1 max1400">
+      <span class="categoria_producto">Tipo de producto: <a href="/productos/categorias/{{producto.categories | slugify}}">{{ producto.categories | join(", ") }}</a></span>
+      <h1>{{ producto.title }}</h1>
+    </div>
+  </section>
+
+  <section id="section__main__image">
+    <div class="column__1 max1400">
+      {% if producto.mainImage %}
+        <picture>
+            {% for format, images in producto.mainImage %}
+            <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
+            {% endfor %}
+            <img src="{{ producto.mainImage.jpeg[0].url }}" alt="{{ producto.mainImage.altText }}">
+        </picture>
+      {% endif %}
+    </div>
+  </section>
+
+  <section id="section__body" class="pad__all__5">
+    <div class="column__1 max1400">
+      <h3>Descripción</h3>
+      {{ producto.body | safe }}
+    </div>
+  </section>
+
+</div>

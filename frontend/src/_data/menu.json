@@ -1,0 +1,7 @@
+[
+    { "name": "Inicio", "url": "/" },
+    { "name": "Productos", "url": "/productos/" },
+    { "name": "Nosotros", "url": "/nosotros/" },
+    { "name": "Blog", "url": "/articulos/1/" },
+    { "name": "Contacto", "url": "/contacto/" }
+]

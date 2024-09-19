@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ empresa[0].brandName }} | {{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="author" content="{{ empresa[0].brandName }}">
+    {% if robots %}<meta name=”robots” content="{{ robots }}">{% endif %}
+    <meta property=”og:type” content="website" />
+    <meta property=”og:title” content="{{ title }}" />
+    <meta property=”og:description” content="{{ description }}" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/general/reset.css">
+    <link rel="stylesheet" href="/css/general/globals.css">
+    <link rel="stylesheet" href="/css/general/nav.css">
+    <link rel="stylesheet" href="/css/general/footer.css">
+    {% if css %} <link rel="stylesheet" href="/css/{{ css }}"> {% endif %}
+    {% for item in social %}
+    {% if item.metaPixel %} {{ item.metaPixel | safe }} {% endif %}
+    {% if item.googleTag %} {{ item.googleTag | safe }} {% endif %}
+    {% endfor %}
+    
+</head>
+<body data-barba="wrapper">
+
+    {% include 'loader.njk' %}
+
+    {% include 'header.njk' %}
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <main>
+                {{ content | safe }}
+            </main>
+            {% include 'footer.njk' %}
+        </div>
+    </div>
+
+    <script src="/js/loader.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://unpkg.com/@barba/css"></script>
+    <script src="/js/main.min.js"></script>
+    <script src="/js/base.js"></script>
+    
+
+</body>
+</html>

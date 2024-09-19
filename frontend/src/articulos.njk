@@ -1,0 +1,69 @@
+---
+eleventyComputed:
+    title: "{{ blog[0].titleseo }}"
+    description: "{{ blog[0].descseo }}"
+    keywords: "{{ blog[0].keyseo }}"
+layout: base.njk
+pagination:
+  data: collections.articulos
+  size: 20
+  alias: item
+permalink: "/articulos/{{pagination.pageNumber + 1}}/"
+---
+
+<div data-barba="container" data-barba-namespace="articulos" data-css="articulos" data-js="blog">
+
+  {% for item in blog %}
+  <section id="section__hero" class="pad__lr__5">
+      <div class="column__2">
+          <div class="col__left flex__justify__c pad__right__5 width__45">            
+              <h1>{{ item.heroH1 }}</h1>
+              <div>{{ item.heroH2 | safe }}</div>
+              <p>{{ item.heroP }}</p>
+              <a class="btn btn__hero">{{ item.heroBtn }}</a>
+          </div>
+          <div class="col__right width__55">
+              {% if item.heroImg %}
+              <picture>
+                  {% for format, images in item.heroImg %}
+                  <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
+                  {% endfor %}
+                  <img src="{{ item.heroImg.jpeg[0].url }}" alt="{{ item.heroImgAlt }}">
+              </picture>
+              {% endif %}
+          </div>
+      </div>
+  </section>
+  {% endfor %}
+
+
+  <section id="section__intro" class="pad__all__5">
+      <div class="column__1">
+          <ul role="list" class="listado__x3 width__100">
+              {%- for item in pagination.items -%}
+                  {% include "post-card.njk" %}
+              {%- endfor %}
+          </ul>
+      </div>
+  </section>
+
+
+  <section id="section__paginacion" class="pad__lr__5 pad__bottom__5">
+    <div class="column__1">
+      <ul class="paginacion" role="list">
+        {% if pagination.href.previous %}
+          <li><a href="{{ pagination.href.previous }}">Anterior</a></li>
+        {% endif %}
+        {% for pageNumber in pagination.pages %}
+          <li><a class="{% if page.permalink == item.permalink %}active{% endif %}" href="/articulos/{{ pagination.pageNumber + 1 }}/">{{ pagination.pageNumber + 1 }}</a></li>
+        {% endfor %}
+        {% if pagination.href.next %}
+          <li><a href="{{ pagination.href.next }}">Siguiente</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </section>
+ 
+
+</div>
+

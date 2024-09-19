@@ -1,0 +1,44 @@
+---
+eleventyComputed:
+    title: "{{ posts[0].titleseo }}"
+    description: "{{ posts[0].descseo }}"
+    keywords: "{{ posts[0].keyseo }}"
+layout: base.njk
+pagination:
+  data: collections.articulos
+  size: 1
+  alias: articulo
+permalink: "/articulos/{{ articulo.slug.current }}/"
+---
+
+<div data-barba="container" data-barba-namespace="articulo" data-css="articulo" data-js="articulo">
+
+  <section id="section__hero" class="pad__lr__5 pad__top__10">
+    <div class="column__1 max1400">
+      <span class="categoria_articulo">Categoría del artículo: <a href="/articulos/categorias/{{articulo.categories | slugify}}">{{ articulo.categories | join(", ") }}</a></span>
+      <h1>{{ articulo.title }}</h1>
+      <p>Publicado el: {{ articulo.publishedAt | date("d 'de' MMMM, yyyy", "es") }}</p>
+    </div>
+  </section>
+
+  <section id="section__main__image">
+    <div class="column__1 max1400">
+      {% if articulo.mainImage %}
+        <picture>
+            {% for format, images in articulo.mainImage %}
+            <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
+            {% endfor %}
+            <img src="{{ articulo.mainImage.jpeg[0].url }}" alt="{{ articulo.mainImage.altText }}">
+        </picture>
+      {% endif %}
+    </div>
+  </section>
+
+  <section id="section__body" class="pad__all__5 fadeInOut">
+    <div class="column__1 max1400">
+      <h3>Descripción</h3>
+      {{ articulo.body | safe }}
+    </div>
+  </section>
+
+</div>

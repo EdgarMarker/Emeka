@@ -1,0 +1,18 @@
+#section__hero{
+    background-color: var(--color-secondary);
+    padding-top: calc(60px + 5%);
+    h1{
+        color: var(--color-accent);
+    }
+    h2{
+        color: var(--color-white);
+    }
+    h2 strong{
+        color: var(--color-primary-light);
+        font-weight: unset;
+    }
+    p{
+        color: var(--color-white);
+        font-size: 1.4vw;
+    }
+}
