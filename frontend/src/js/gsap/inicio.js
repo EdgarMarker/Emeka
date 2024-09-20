@@ -11,6 +11,8 @@ function gsapSoloAnimations() {
 
     // Hero animación:
     var tl = gsap.timeline();
+    gsap.set(".sello", {opacity: 0.2, scale: 12}),
+    gsap.set("#video__inicio", {clipPath: "circle(0% at 50% 50%)"}),
 
     tl.from("h1", {
         opacity: 0,
@@ -71,7 +73,6 @@ function gsapSoloAnimations() {
 
     gsap.to("#video__inicio", {
         clipPath: "circle(100% at 50% 50%)",
-        ease: "power1.in",
         scrollTrigger: {
             trigger: ".vid__hero",
             start: "top 0%",
@@ -97,10 +98,11 @@ function gsapSoloAnimations() {
     gsap.to('.sello', {
         scale:1,
         opacity:1,
+        ease: "power1.out",
         scrollTrigger: {
-            trigger: '.column__3',
-            start: 'top 50%',
-            end: "+=150% 50%",
+            trigger: '#section__hero .column__3',
+            start: 'top top',
+            end: "bottom top",
             scrub: true,
         }
     });

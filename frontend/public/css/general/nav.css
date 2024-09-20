@@ -38,6 +38,7 @@ header{
 .nav__ul li a{
     color: var(--color-secondary);
     font-size: 15px;
+    font-weight: 400;
     text-transform: uppercase;
     line-height: 1;
     height: 60px;
@@ -51,11 +52,11 @@ header{
 }
 
 .nav__ul li a:hover{
-    color: var(--color-secondary-light)
+    color: var(--color-secondary)
 }
 
 #inner__header .nav__ul li a.active{
-    color: var(--color-secondary-light);
+    color: var(--color-secondary);
     pointer-events: none;
 }
 

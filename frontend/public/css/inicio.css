@@ -1,4 +1,7 @@
+/*  Hero  */
+
 #section__hero{
+    overflow: hidden;
     background-color: var(--color-primary);
     padding-top: calc(60px + 3%);
     background-image: url(/images/bg_yellow.svg);
@@ -56,95 +59,126 @@
             }
         }
     }
+}
 
-    .column__3{
-        margin-top: 60vh;
-        height: 100vh;
-        position: relative;
-        z-index: 1;
-        .col__left{
-            width: 30%;
-            gap: 50px;
-            justify-content: space-between;
-            padding: 0px 50px;
-            img{
-                height: calc(50% - 25px);
-                width: 100%;
-                object-fit: cover;
-            }
-        }
-        .col__center{
-            width: 40%;
-        }
-        .col__right{
-            width: 30%;
-            gap: 50px;
-            justify-content: space-between;
-            padding: 0px 50px;
-            img{
-                height: calc(50% - 25px);
-                width: 100%;
-                object-fit: cover;
-            }
-        }
-    }
-    
-    .vid__hero{
-        height: 200vh;
-        width: 100%;
-        #video__inicio{
-            width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            clip-path: circle(0% at 50% 50%);
-        }
-    }
+.btn__hero{
+    position: relative;
+    z-index: 1;
+}
 
-    .btn__hero{
-        position: relative;
-        z-index: 1;
-        img:first-child{
-            position: relative;
-            width: 100%;
-            height: auto;
-            max-width: 230px;
-        }
+.btn__hero img:first-child{
+    position: relative;
+    width: 100vw;
+    height: auto;
+    max-width: 230px;
+}
 
-        .btn__circle{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            img{
-                width: 100%;
-                height: 100%;
-                animation-name: giraBtn;
-                animation-duration: 10s;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
+.btn__circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
-            }
-        }
-    }
+.btn__circle img{
+    width: 100%;
+    height: 100%;
+    animation-name: giraBtn;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 
-    .sello{
-        width:20vw;
-        height:20vh;
-        position:absolute;
-        z-index:0;
-        top:40vh;
-        left:40vw;
-        transform:scale(12);
-        opacity:0.2;
+#section__hero .column__3{
+    margin-top: 60vh;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    .col__left{
+        width: 30%;
+        gap: 50px;
+        justify-content: space-between;
+        padding: 0px 50px;
         img{
-            width:100%;
-	        height:100%;
-	        object-fit:contain;
+            height: calc(50% - 25px);
+            width: 100%;
+            object-fit: cover;
         }
     }
+    .col__center{
+        width: 40%;
+    }
+    .col__right{
+        width: 30%;
+        gap: 50px;
+        justify-content: space-between;
+        padding: 0px 50px;
+        img{
+            height: calc(50% - 25px);
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+} 
+
+.sello{
+    width:20vw;
+    height:20vh;
+    position:absolute;
+    z-index:0;
+    top:40vh;
+    left:40vw;
+    opacity:0.2;
+}
+
+.sello img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    margin-left: -8px;
+}
+
+.vid__hero{
+    height: 200vh;
+    width: 100%;
+}
+
+#video__inicio{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
     
 }
+
+.titulo__creamos{
+    position: absolute;
+    width: 40vw;
+    height: 40vh;
+    bottom: -3px;
+    left: 30vw;
+    z-index: 2;
+    margin-left: -10%;
+    background-image: url(/images/inicio/title_creamos.svg);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.titulo__habitat{
+    position: absolute;
+    width: 40vw;
+    height: 40vh;
+    top: 0;
+    right: 30vw;
+    z-index: 2;
+    margin-right: -10%;
+    background-image: url(/images/inicio/title_habitat.svg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 
 @keyframes giraBtn {
     from{
@@ -153,6 +187,15 @@
     to{
         transform: rotate(360deg);
     }
+}
+
+
+
+/*  Intro  */
+
+#section__intro{
+    overflow: hidden;
+    background-color: var(--color-secondary-light);
 }
 
 #section__productos .column__1{
