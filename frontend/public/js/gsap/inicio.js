@@ -45,7 +45,7 @@ function gsapSoloAnimations() {
         duration:1,
         ease:'none',
         scrollTrigger: {
-            trigger: "#frase__hero",
+            trigger: "#section__hero",
             start:"top 50%",
             end: "bottom 50%",
             scrub: true,
@@ -80,8 +80,29 @@ function gsapSoloAnimations() {
             scrub: true,
             pin: "#video__inicio",
             pinSpacing: false,
-            markers: true,
         }
     })
+
+    gsap.to('.sello', {
+        scrollTrigger: {
+            trigger: '#section__hero',
+            start: 'top top',
+            end: "bottom bottom",
+            pin:".sello",
+            pinSpacing: true,
+            scrub: true,
+        }
+    });
+	
+    gsap.to('.sello', {
+        scale:1,
+        opacity:1,
+        scrollTrigger: {
+            trigger: '.column__3',
+            start: 'top 50%',
+            end: "+=150% 50%",
+            scrub: true,
+        }
+    });
 
 }
