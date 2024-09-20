@@ -1,0 +1,4 @@
+[
+    { "name": "Inicio", "url": "/" },
+    { "name": "Nosotros", "url": "/nosotros/" }
+]

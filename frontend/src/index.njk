@@ -11,29 +11,58 @@ permalink: "/{{ page.fileSlug }}/"
     
 {% for item in inicio %}
 
-    <section id="section__hero" class="pad__lr__5">
-        <div class="column__2">
-            <div class="col__left flex__justify__c pad__right__5 width__45">            
+    <section id="section__hero">
+        <div class="column__2 pad__lr__5">
+            <div class="col__left">            
                 <h1>{{ item.heroH1 }}</h1>
                 <div>{{ item.heroH2 | safe }}</div>
                 <p>{{ item.heroP }}</p>
-                <a class="btn btn__hero">{{ item.heroBtn }}</a>
+                
             </div>
-            <div class="col__right width__55">
-                {% if item.heroImg %}
+            <div class="col__right">
+                <a class="btn__hero">
+                    <img src="/images/btnhero_arrow.svg" />
+                    <div class="btn__circle"><img src="/images/btnhero_circle.svg" /></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="column__1 img__hero pad__lr__5">
+            {% if item.heroImg %}
                 <picture>
                     {% for format, images in item.heroImg %}
                     <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
                     {% endfor %}
                     <img src="{{ item.heroImg.jpeg[0].url }}" alt="{{ item.heroImgAlt }}">
                 </picture>
-                {% endif %}
+            {% endif %}
+        </div>
+
+        <div class="column__3">
+            <div class="col__left">
+                <img src="/images/inicio/1000x800.png" />
+                <img src="/images/inicio/1000x800.png" />
+            </div>
+            <div class="col__center">
+
+            </div>
+            <div class="col__right">
+                <img src="/images/inicio/1000x800.png" />
+                <img src="/images/inicio/1000x800.png" />
             </div>
         </div>
+
+        <div class="column__1 vid__hero">
+            <video id="video__inicio" width="320" height="240" autoplay loop muted>
+                <source src="/images/emeka_inicio.mp4" type="video/mp4">
+                Tu navegador no soporta este video
+            </video>
+        </div>
+
     </section>
 
 
-    <section id="section__intro" class="pad__all__5 fadeInOut">
+    <section id="section__intro" class="pad__all__10 fadeInOut">
         <div class="column__2">
             <div class="col__left width__40">
                 <h3>{{ item.introH3 }}</h3>

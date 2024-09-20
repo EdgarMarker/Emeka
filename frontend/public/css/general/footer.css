@@ -1,6 +1,7 @@
 footer{
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     padding: 5% 5% 50px;
+    background-image: url(/images/bg_yellow.svg);
 }
 
 .footer__column{
@@ -12,13 +13,13 @@ footer{
 }
 
 .footer__column h2{
-    color: var(--color-accent);
+    color: var(--color-secondary);
     font-size: var(--size-xs);
     text-transform: uppercase;
 }
 
 .footer__column a{
-    color: var(--color-white);
+    color: var(--color-secondary);
     font-size: var(--size-xs);
     padding: 0;
     text-transform: unset;
@@ -26,7 +27,7 @@ footer{
 }
 
 .footer__column a:hover{
-    color: var(--color-accent);
+    color: var(--color-secondary-light);
     transition: color 0.3s ease-in-out;
 }
 
@@ -39,7 +40,7 @@ footer{
 }
 
 .footer__column li{
-    color: var(--color-accent);
+    color: var(--color-secondary);
     font-size: var(--size-xs);
     margin-bottom: 0px;
     padding: 10px 0px;
@@ -53,7 +54,7 @@ footer{
 }
 
 .footer__column li a{
-    color: var(--color-white);
+    color: var(--color-secondary);
     font-size: var(--size-xs);
     line-height: 1.6;
     text-transform: unset;
@@ -63,7 +64,7 @@ footer{
 }
 
 .footer__column li a.active{
-    color: var(--color-accent);
+    color: var(--color-secondary-light);
     pointer-events: none;
 }
 
@@ -86,13 +87,13 @@ footer{
 }
 
 #inner__footer span{
-    color: var(--color-white);
+    color: var(--color-secondary);
     font-size: 14px;
 }
 
 #inner__footer a{
-    color: var(--color-accent);
-    font-size: 14px;
+    color: var(--color-secondary);
+    font-size: inherit;
 }
 
 #inner__footer a:hover{

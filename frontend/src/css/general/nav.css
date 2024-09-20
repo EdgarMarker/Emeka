@@ -1,5 +1,5 @@
 header{
-    background-color: var(--color-secondary);
+    background-color: var(--color-accent);
     position: fixed;
     top: 0;
     left: 0;
@@ -31,11 +31,12 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 30%;
 }
 
 .nav__ul li a{
-    color: var(--color-white);
+    color: var(--color-secondary);
     font-size: 15px;
     text-transform: uppercase;
     line-height: 1;
@@ -50,11 +51,11 @@ header{
 }
 
 .nav__ul li a:hover{
-    color: var(--color-accent)
+    color: var(--color-secondary-light)
 }
 
 #inner__header .nav__ul li a.active{
-    color: var(--color-accent);
+    color: var(--color-secondary-light);
     pointer-events: none;
 }
 
@@ -62,8 +63,8 @@ header{
     content:"";
     position: absolute;
     width: calc(100% - 40px);
-    height: 3px;
-    background-color: var(--color-accent);
+    height: 5px;
+    background-color: var(--color-secondary);
     bottom: 0;
     left: 20px;
     display: none;
@@ -126,7 +127,7 @@ header{
 #mobile__trigger span{
     width: 26px;
     height: 2px;
-    background-color: var(--color-accent);
+    background-color: var(--color-secondary);
     display: block;
     position: absolute;
     top: 15px;
@@ -175,7 +176,7 @@ header{
     width: 30vw;
     min-width: 250px;
     height: 100dvh;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary-dark);
     transform: translateX(100vw);
     z-index: 99;
     transition: transform 0.3s ease-in-out;
