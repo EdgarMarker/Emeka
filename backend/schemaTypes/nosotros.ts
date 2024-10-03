@@ -1,3 +1,9 @@
+interface arrayValidationRule {
+    max: (n: number) => any
+    error: (message: string) => any
+    warning: (message: string) => any
+}
+
 export default {
     name: 'nosotros',
     title: 'Nosotros',
@@ -15,6 +21,10 @@ export default {
             name: 'intro',
             title: 'Introducción',
         },
+        {
+            name: 'divisor',
+            title: 'Divisor',
+        }
   ],
     fields: [
         {
@@ -23,7 +33,7 @@ export default {
             type: 'string',
             description: '*Quedará oculto a la vista del usuario, exclusivo para SEO (Max caracteres 70)',
             group: 'seo',
-            validation: rule => rule.max(70).warning('Se han rebasado los 70 caracteres recomendados')
+            validation: (rule: arrayValidationRule) => rule.max(70).warning('Se han rebasado los 70 caracteres recomendados')
         },
         {
             name: 'descseo',
@@ -31,7 +41,7 @@ export default {
             type: 'text',
             description: '*Quedará oculto a la vista del usuario, exclusivo para SEO (Max caracteres 155)',
             group: 'seo',
-            validation: rule => rule.max(155).warning('Se han rebasado los 155 caracteres recomendados')
+            validation: (rule: arrayValidationRule) => rule.max(155).warning('Se han rebasado los 155 caracteres recomendados')
         },
         {
             name: 'keyseo',
@@ -110,5 +120,14 @@ export default {
                 hotspot: true,
             },
         },
+        {
+            name: 'introImgDivisor',
+            title: 'Imagen divisor para la introducción',
+            type: 'image',
+            group: 'divisor',
+            options: {
+                hotspot: true,
+            },
+        }
     ]
   }

@@ -1,3 +1,8 @@
+interface ArrayValidationRule {
+    max: (n: number) => any
+    error: (message: string) => any,
+    warning: (message: string) => any
+}
 export default {
     name: 'inicio',
     title: 'Inicio',
@@ -27,7 +32,7 @@ export default {
             type: 'string',
             description: '*Quedará oculto a la vista del usuario, exclusivo para SEO (Max caracteres 70)',
             group: 'seo',
-            validation: rule => rule.max(70).warning('Se han rebasado los 70 caracteres recomendados')
+            validation: (rule: ArrayValidationRule) => rule.max(70).warning('Se han rebasado los 70 caracteres recomendados')
         },
         {
             name: 'descseo',
@@ -35,7 +40,7 @@ export default {
             type: 'text',
             description: '*Quedará oculto a la vista del usuario, exclusivo para SEO (Max caracteres 155)',
             group: 'seo',
-            validation: rule => rule.max(155).warning('Se han rebasado los 155 caracteres recomendados')
+            validation: (rule: ArrayValidationRule) => rule.max(155).warning('Se han rebasado los 155 caracteres recomendados')
         },
         {
             name: 'keyseo',
@@ -79,46 +84,72 @@ export default {
             },
         },
         {
-            name: 'introH3',
-            title: 'Subtítulo indicador para la introducción',
-            type: 'string',
-            group: 'intro'
+            name: 'heroGallery1',
+            title: 'Galería de imágenes imagen numero 1',
+            type: 'image',
+            group: 'hero',
+            options: {
+                hotspot: true,
+            },
         },
         {
-            name: 'introH2',
-            title: 'Título principal para la introducción',
-            type: 'string',
-            group: 'intro'
+            name: 'heroGallery2',
+            title: 'Galería de imágenes imagen numero 2',
+            type: 'image',
+            group: 'hero',
+            options: {
+                hotspot: true,
+            },
         },
         {
-            name: 'introRichText',
-            title: 'Descripción para la introducción',
+            name: 'heroGallery3',
+            title: 'Galería de imágenes imagen numero 3',
+            type: 'image',
+            group: 'hero',
+            options: {
+                hotspot: true,
+            },
+        },
+        {
+            name: 'heroGallery4',
+            title: 'Galería de imágenes imagen numero 4',
+            type: 'image',
+            group: 'hero',
+            options: {
+                hotspot: true,
+            },
+        },
+        {
+            name: 'introRichText1',
+            title: 'Descripción para la introducción primera parte',
             type: 'blockContent',
             group: 'intro'
         },
         {
-            name: 'introBtn',
-            title: 'Texto del botón',
-            type: 'string',
-            group: 'intro'
-        },
-        {
-            name: 'introImg1',
-            title: 'Imagen principal para la introducción',
-            type: 'image',
+            name: 'intro2',
+            title: 'Segunda sección de introducción',
             group: 'intro',
-            options: {
-                hotspot: true,
-            },
-        },
-        {
-            name: 'introImg2',
-            title: 'Imagen secundaria para la introducción',
-            type: 'image',
-            group: 'intro',
-            options: {
-                hotspot: true,
-            },
+            type: 'object',
+            fields: [
+                {
+                    name: 'intro2Title',
+                    title: 'Título para la segunda introducción',
+                    type: 'string',
+                },
+                {
+                    name: 'intro2RichText',
+                    title: 'Descripción para la introducción segunda parte',
+                    type: 'blockContent',
+                },
+                {
+                    name: 'intro2Img',
+                    title: 'Imagen',
+                    type: 'image',
+                    options: {
+                        hotspot: true,
+                    },
+                }
+            ]
         },
         {
             name: 'recentProdRef',

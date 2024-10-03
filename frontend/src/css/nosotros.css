@@ -1,6 +1,7 @@
 #section__hero{
     background-color: var(--color-secondary);
-    padding-top: calc(60px + 5%);
+    padding: 0;
+    padding-top: calc(60px);
     h1{
         color: var(--color-accent);
     }
@@ -14,5 +15,50 @@
     p{
         color: var(--color-white);
         font-size: var(--size-md);
+    }
+    picture{
+        width: 100%;
+    }
+}
+.titulo__creamos{
+    position: absolute;
+    width: 40vw;
+    height: 40vh;
+    bottom: -3px;
+    left: 30vw;
+    z-index: 2;
+    margin-left: -10%;
+    background-image: url(/images/inicio/title_creamos.svg);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.titulo__habitat{
+    position: absolute;
+    width: 40vw;
+    height: 40vh;
+    top: 0;
+    right: 30vw;
+    z-index: 2;
+    margin-right: -10%;
+    background-image: url(/images/inicio/title_habitat.svg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#section__intro{
+    background-color: var(--color-secondary-light);
+    height: fit-content;
+    &::after{
+        content: "";
+        width: 100%;
+        height: 10%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color-white);
+        z-index: -1;
     }
 }

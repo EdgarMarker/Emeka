@@ -22,17 +22,50 @@ module.exports = async function() {
       "media": asset->{url},
       "alt": asset->{altText}
     },
-    introH3,
-    introH2,
-    introRichText,
-    introBtn,
-    introImg1{
-      "media": asset->{url},
-      "alt": asset->{altText}
+    heroGallery1{
+      ...,
+      _type == 'image' => {
+        "media": asset->{
+          url,
+          "alt": altText
+        }
+      }
     },
-    introImg2{
-      "media": asset->{url},
-      "alt": asset->{altText}
+    heroGallery2{
+      ...,
+      _type == 'image' => {
+        "media": asset->{
+          url,
+          "alt": altText
+        }
+      }
+    },
+    heroGallery3{
+      ...,
+      _type == 'image' => {
+        "media": asset->{
+          url,
+          "alt": altText
+        }
+      }
+    },
+    heroGallery4{
+      ...,
+      _type == 'image' => {
+        "media": asset->{
+          url,
+          "alt": altText
+        }
+      }
+    },
+    introRichText1,
+    intro2{
+      intro2Title,
+      intro2RichText,
+      intro2Img{
+        "media": asset->{url},
+        "alt": asset->{altText}
+      }
     },
     recentProdRef{
       "recentProducts": recentProducts[]->{

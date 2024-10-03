@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMEKÁ | </title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="EMEKÁ">
+    
+    <meta property=”og:type” content="website" />
+    <meta property=”og:title” content="" />
+    <meta property=”og:description” content="" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/general/reset.css">
+    <link rel="stylesheet" href="/css/general/globals.css">
+    <link rel="stylesheet" href="/css/general/nav.css">
+    <link rel="stylesheet" href="/css/general/footer.css">
+    
+    
+    
+</head>
+<body data-barba="wrapper">
+
+    <div id="overlay">
+    <div id="progstat"></div>
+    <div id="progress"></div>
+    <div id="progress__bg"></div>
+    <div id="logoloader">
+        <img src="/images/sello.svg" height="50" />
+    </div>
+</div>
+<div class="transition__top"></div>
+<div class="transition__bottom"></div>
+
+    <header id="header" class="pad__lr__10">
+    
+    <div id="inner__header">
+        
+        <ul role="list" class="nav__ul nav__ul__left">
+    
+        <li>
+            <a href="/" class="" >
+                Inicio
+            </a>
+        </li>
+    
+        <li>
+            <a href="/nosotros/" class="" >
+                Nosotros
+            </a>
+        </li>
+    
+</ul>
+
+        <a id="logo__main" href="/">
+            <img src="https://cdn.sanity.io/images/nprovn8b/production/1253bbd04846e76ebcea800242030883b85f9d9d-200x36.svg" alt="EMEKÁ - Desarrollos inmobiliarios" />
+        </a>
+
+        
+        <ul role="list" class="nav__ul nav__ul__right">
+    
+        <li>
+            <a href="/desarrollos/" class="" >
+                Desarrollos
+            </a>
+        </li>
+    
+        <li>
+            <a href="/contacto/" class="" >
+                Contacto
+            </a>
+        </li>
+    
+</ul>
+        
+        <div id="mobile__trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    
+    <div id="mobile__menu">
+        <ul role="list" class="nav__ul nav__ul__left">
+    
+        <li>
+            <a href="/" class="" >
+                Inicio
+            </a>
+        </li>
+    
+        <li>
+            <a href="/nosotros/" class="" >
+                Nosotros
+            </a>
+        </li>
+    
+</ul>
+        <a class="cta__msn" href="https://wa.me/5219999704202" target="_blank">Mensaje</a>
+    </div>
+    <div id="mobile__active"></div>
+    
+</header>
+
+<a class="cta__msn" href="https://wa.me/521" target="_blank">Mensaje</a>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <main>
+                
+<div data-barba="container" data-barba-namespace="productos" data-css="productos" data-js="productos">
+  
+    <section id="section__hero" class="pad__lr__5">
+      <div class="column__2">
+        <div class="col__left flex__justify__c pad__right__5 width__45">
+          <div><h2>Creamos comunidades que viven en armonía con el medio ambiente</h2></div>
+        </div>
+        <div class="col__right width__55"></div>
+      </div>
+    </section>
+  
+  <section id="section__intro" class="pad__bottom__5 pad__lr__5">
+    <div class="column__1">
+      <ul role="list" class="listado__x3 width__100 ul__desarrollos"><li class="card li__desarrollos">
+              
+    <span class="card__category">
+      
+        <a href="/productos/categorias/departamentos">Departamentos</a> /
+      
+    </span>
+  
+
+  <h2><a href="/productos/altea">Altea</a></h2>
+
+  
+  <a class="card__pic" href="/productos/altea">
+    <picture>
+        
+        <source srcset="/images/33M7TYoW0Q-300.jpeg 300w, /images/33M7TYoW0Q-600.jpeg 600w" sizes="(max-width: 600px) 100vw, 600px" type="image/jpeg">
+        
+        <source srcset="/images/33M7TYoW0Q-300.webp 300w, /images/33M7TYoW0Q-600.webp 600w" sizes="(max-width: 600px) 100vw, 600px" type="image/webp">
+        
+        <img src="/images/33M7TYoW0Q-300.jpeg" alt="">
+    </picture>
+    
+  </a>
+  <a class="btn" href="/productos/altea">Más información</a> 
+          </li>
+      </ul>
+    </div>
+  </section>
+  <!-- //Usar en caso de requerir paginación: <nav>
+      <ul>
+        
+        
+          <li><a href="/productos/[object Object]">[object Object]</a></li>
+        
+        
+      </ul>
+  </nav> -->
+</div>
+            </main>
+            <footer>
+  <div class="column__2 pad__tb__5">
+    <div class="col__left pad__right__5">
+      <h3>contacto</h3>
+      <h2>Entremos en contacto</h2>
+      <ul role="list">
+        
+        <li class="flex flex__col">
+            <h4>Teléfono</h4>
+          <a href="tel:9999704202">9999704202</a>
+        </li>
+        <li class="flex flex__col">
+            <h4>Correo Electrónico</h4>
+          <a href="mailto:contacto@emeka.mx">contacto@emeka.mx</a>
+        </li>
+        <li class="flex flex__col">
+            <h4>Oficinas</h4>
+          <a
+            href="https://www.google.com/maps/place/Emek%C3%A1+Desarrollos/@21.0233011,-89.5773149,18.03z/data=!4m6!3m5!1s0x274ea09b1e7d776b:0xf5c0e3283e738df3!8m2!3d21.0233661!4d-89.5762124!16s%2Fg%2F11y5qdfwny?entry=ttu&amp;g_ep=EgoyMDI0MDkxNi4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            >Calle 7 No. 401 x 18 y 20. Fraccionamiento Altabrisa. C.P. 97134. Mérida, Yucatán, México</a
+          >
+        </li>
+        
+      </ul>
+    </div>
+    <div class="col__right">
+        <form
+    class="column__1 flex__justify__c form"
+    method="post"
+    action="/submit-form"
+    onsubmit="return validateForm()">
+    <div class="column__2 width__100 pad__bottom__5">
+        <div class="col__left pad__right__5">
+            <label for="nombre" class="width__100 pad__bottom__5">Nombre</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Ingresa tu nombre"
+                class="width__100 pad__all__5 "
+                required>
+        </div>
+        <div class="col__right">
+            <label for="telefono" class="width__100 pad__bottom__5">Teléfono</label>
+            <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="Ingresa tu teléfono"
+                class="width__100 pad__all__5 "
+                required>
+        </div>
+    </div>
+    <div class="column__2 width__100 pad__bottom__5">
+        <div class="col__left pad__right__5">
+            <label for="email" class="width__100 pad__bottom__5">Correo electrónico</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Ingresa tu correo electrónico"
+                class="width__100 pad__all__5 "
+                required>
+        </div>
+        <div class="col__right">
+            <label for="ciudad" class="width__100 pad__bottom__5">Ciudad</label>
+            <input
+                type="text"
+                id="ciudad"
+                name="ciudad"
+                placeholder="Ingresa tu ciudad"
+                class="width__100 pad__all__5 "
+                required>
+        </div>
+    </div>
+    <div class="column__2 width__100 pad__bottom__5">
+        <div class="col__left pad__right__5">
+            <label for="desarrollo-interes" class="width__100 pad__bottom__5">Desarrollo de interés</label>
+            <select id="desarrollo-interes" name="desarrollo-interes" class="width__100 pad__all__5 " required>
+                <option value="">Selecciona una opción</option>
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+        </div>
+        <div class="col__right">
+            <label for="etapa-decision" class="width__100 pad__bottom__5">Etapa de decisión</label>
+            <select id="etapa-decision" name="etapa-decision" class="width__100 pad__all__5 " required>
+                <option value="">Selecciona una opción</option>
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+        </div>
+    </div>
+    <label for="comentarios" class="width__100 pad__bottom__5">Comentarios (opcional)</label>
+    <textarea
+        id="comentarios"
+        name="comentarios"
+        placeholder="Ingresa tus comentarios"
+        class="width__100 pad__all__5  pad__bottom__5"></textarea>
+    <button
+        type="submit"
+        class="btn"
+        style="background-color: #333; color: white; border: none; cursor: pointer; margin-top: 20px;">ENVIAR MENSAJE</button>
+</form>
+<script>
+    function validateForm() { // Sanitize user input
+        var nombre = document
+            .getElementById("nombre")
+            .value
+            .trim();
+        var telefono = document
+            .getElementById("telefono")
+            .value
+            .trim();
+        var email = document
+            .getElementById("email")
+            .value
+            .trim();
+        var ciudad = document
+            .getElementById("ciudad")
+            .value
+            .trim();
+        var desarrolloInteres = document
+            .getElementById("desarrollo-interes")
+            .value
+            .trim();
+        var etapaDecision = document
+            .getElementById("etapa-decision")
+            .value
+            .trim();
+        var comentarios = document
+            .getElementById("comentarios")
+            .value
+            .trim();
+        // Check for script injection
+        if (
+            /<[^>]+>/.test(nombre) ||
+            /<[^>]+>/.test(telefono) ||
+            /<[^>]+>/.test(email) ||
+            /<[^>]+>/.test(ciudad) ||
+            /<[^>]+>/.test(desarrolloInteres) ||
+            /<[^>]+>/.test(etapaDecision) ||
+            /<[^>]+>/.test(comentarios)
+        ) {
+            alert("No se permiten etiquetas HTML en los campos del formulario.");
+            return false;
+        }
+        // Submit the form
+        return true;
+    }
+</script>
+    </div>
+  </div>
+  <div class="column__1 listado__x4">
+    <div class="footer__column">
+      <h2>Mapa del sitio</h2>
+      <ul role="list" class="nav__ul nav__ul__left">
+    
+        <li>
+            <a href="/" class="" >
+                Inicio
+            </a>
+        </li>
+    
+        <li>
+            <a href="/nosotros/" class="" >
+                Nosotros
+            </a>
+        </li>
+    
+</ul> <ul role="list" class="nav__ul nav__ul__right">
+    
+        <li>
+            <a href="/desarrollos/" class="" >
+                Desarrollos
+            </a>
+        </li>
+    
+        <li>
+            <a href="/contacto/" class="" >
+                Contacto
+            </a>
+        </li>
+    
+</ul>
+    </div>
+    <div class="footer__column">
+      <h2>Desarrollos</h2>
+      <ul>
+        
+        <li>
+          <a href="/desarrollos/altea">Altea</a>
+        </li>
+        
+      </ul>
+    </div>
+    <div class="footer__column">
+      <h2>Síguenos</h2>
+      <ul>
+        
+      </ul>
+    </div>
+    <div class="footer__column">
+      
+      <a class="logo__footer" href="/">
+        <img
+          src="https://cdn.sanity.io/images/nprovn8b/production/a7bbe9527d944f6a28dfbcb0a016222d68fcfb51-189x189.svg"
+          alt="EMEKÁ - Desarrollos inmobiliarios"
+        />
+      </a>
+       
+    </div>
+  </div>
+  <div id="inner__footer" class="column__1">
+    <span>
+      
+      EMEKÁ
+       © Todos los derechos reservados | Sitio web creado por
+      <a href="https://marker.com.mx" target="_blank">MARKER branding</a>
+    </span>
+  </div>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="/js/loader.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://unpkg.com/@barba/css"></script>
+    <script src="/js/main.min.js"></script>
+    <script src="/js/base.js"></script>
+    
+
+</body>
+</html>

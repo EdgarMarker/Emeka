@@ -1,7 +1,7 @@
-const client = require('../utils/sanityClient');
-const processContent = require('../utils/contentProcessor');
+const client = require("../utils/sanityClient");
+const processContent = require("../utils/contentProcessor");
 
-module.exports = async function() {
+module.exports = async function () {
   const data = await client.fetch(`*[_type == "products"]{
     titleseo,
     descseo,
@@ -24,6 +24,26 @@ module.exports = async function() {
       "media": asset->{url},
       "alt": asset->{altText}
     },
+    introImage{
+      "media": asset->{url},
+      "alt": asset->{altText}
+    },
+    introTitle,
+    introRichText,
+    introProductWeb,
+    introProductBrochure,
+    logoImg{
+        "media": asset->{url},
+        "alt": asset->{altText}
+    },
+    characteristicsTitle,
+    characteristicsRichText,
+    characteristicsSpecifications,
+    divisorImg{
+        "media": asset->{url},
+        "alt": asset->{altText}
+    },
+     
   }`);
 
   await Promise.all(data.map(processContent)); // Procesa todo el contenido en cada objeto

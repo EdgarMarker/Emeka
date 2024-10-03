@@ -1,119 +1,196 @@
 ---
 eleventyComputed:
-    title: "{{ inicio[0].titleseo }}"
-    description: "{{ inicio[0].descseo }}"
-    keywords: "{{ inicio[0].keyseo }}"
+  title: "{{ inicio[0].titleseo }}"
+  description: "{{ inicio[0].descseo }}"
+  keywords: "{{ inicio[0].keyseo }}"
 layout: "base.njk"
 permalink: "/{{ page.fileSlug }}/"
 ---
 
-<div data-barba="container" data-barba-namespace="inicio" data-css="inicio" data-js="inicio">
-    
-{% for item in inicio %}
+<div
+  data-barba="container"
+  data-barba-namespace="inicio"
+  data-css="inicio"
+  data-js="inicio"
+>
+  {% for item in inicio %}
+  <section id="section__hero">
+    <div class="column__2 pad__lr__5">
+      <div class="col__left">
+        <h1>{{ item.heroH1 }}</h1>
+        <div>{{ item.heroH2 | safe }}</div>
+        <p>{{ item.heroP }}</p>
+      </div>
+      <div class="col__right">
+        <a class="btn__hero">
+          <img src="/images/btnhero_arrow.svg" />
+          <div class="btn__circle">
+            <img src="/images/btnhero_circle.svg" />
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="column__1 img__hero pad__lr__5">
+      {% if item.heroImg %}
+      <picture>
+        {% for format, images in item.heroImg %}
+        <source
+          srcset="{{ images | srcset }}"
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          type="image/{{ format }}" />
+        {% endfor %}
+        <img src="{{ item.heroImg.jpeg[0].url }}" alt="{{ item.heroImgAlt }}"
+      /></picture>
+      {% endif %}
+    </div>
+    <div class="column__3">
+      <div class="col__left">
+        {% if item.heroGallery1 %}
+        <picture class="heroGallery">
+          {% for format, images in item.heroGallery1 %}
+          <source
+            srcset="{{ images | srcset }}"
+            sizes="(max-width: 600px) 100vw, 600px"
+            type="image/{{ format }}"
+          />
+          {% endfor %}
+          <img src="{{ item.heroGallery1.jpeg[0].url }}" />
+        </picture>
+        {% endif %} {% if item.heroGallery2 %}
+        <picture class="heroGallery">
+          {% for format, images in item.heroGallery2 %}
+          <source
+            srcset="{{ images | srcset }}"
+            sizes="(max-width: 600px) 100vw, 600px"
+            type="image/{{ format }}"
+          />
+          {% endfor %}
+          <img src="{{ item.heroGallery2.jpeg[0].url }}" />
+        </picture>
+        {% endif %}
+      </div>
+      <div class="col__center"></div>
+      <div class="col__right">
+        {% if item.heroGallery3 %}
+        <picture class="heroGallery">
+          {% for format, images in item.heroGallery3 %}
+          <source
+            srcset="{{ images | srcset }}"
+            sizes="(max-width: 600px) 100vw, 600px"
+            type="image/{{ format }}"
+          />
+          {% endfor %}
+          <img src="{{ item.heroGallery3.jpeg[0].url }}" />
+        </picture>
+        {% endif %} {% if item.heroGallery4 %}
+        <picture class="heroGallery">
+          {% for format, images in item.heroGallery4 %}
+          <source
+            srcset="{{ images | srcset }}"
+            sizes="(max-width: 600px) 100vw, 600px"
+            type="image/{{ format }}"
+          />
+          {% endfor %}
+          <img src="{{ item.heroGallery4.jpeg[0].url }}" />
+        </picture>
+        {% endif %}
+      </div>
+    </div>
+    <div class="column__1 vid__hero">
+      <video id="video__inicio" width="320" height="240" autoplay loop muted>
+        <source src="/images/inicio/emeka_inicio.mp4" type="video/mp4" />
+        Tu navegador no soporta este video
+      </video>
+      <div class="titulo__creamos"></div>
+    </div>
+    <div class="sello">
+      <img src="/images/emeka_sello.svg" alt="EMEKÁ desarrollos" />
+    </div>
+  </section>
 
-    <section id="section__hero">
-        <div class="column__2 pad__lr__5">
-            <div class="col__left">            
-                <h1>{{ item.heroH1 }}</h1>
-                <div>{{ item.heroH2 | safe }}</div>
-                <p>{{ item.heroP }}</p>
-                
-            </div>
-            <div class="col__right">
-                <a class="btn__hero">
-                    <img src="/images/btnhero_arrow.svg" />
-                    <div class="btn__circle"><img src="/images/btnhero_circle.svg" /></div>
-                </a>
-            </div>
-        </div>
-
-        <div class="column__1 img__hero pad__lr__5">
-            {% if item.heroImg %}
-                <picture>
-                    {% for format, images in item.heroImg %}
-                    <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
-                    {% endfor %}
-                    <img src="{{ item.heroImg.jpeg[0].url }}" alt="{{ item.heroImgAlt }}">
-                </picture>
+  <section id="section__intro" class="pad__all__10 fadeInOut">
+    <div class="titulo__habitat"></div>
+    <div class="column__1 flex__align__c">
+      <div class="width__60">
+        <div>{{ item.introRichText1 | safe }}</div>
+        <div class="column__2 mar__top__5">
+          <div class="col__left flex__justify__sb width__30">
+            {% if item.introImg2 %}
+            <picture>
+              {% for format, images in item.introImg2 %}
+              <source
+                srcset="{{ images | srcset }}"
+                sizes="(max-width: 600px) 100vw, 600px"
+                type="image/{{ format }}" />
+              {% endfor %}
+              <img
+                src="{{ item.introImg2.jpeg[0].url }}"
+                alt="{{ item.introImg2Alt }}"
+            /></picture>
             {% endif %}
+          </div>
+          <div class="col__right width__70 pad__left__5">
+            {% if item.introImg1 %}
+            <picture>
+              {% for format, images in item.introImg1 %}
+              <source
+                srcset="{{ images | srcset }}"
+                sizes="(max-width: 900px) 100vw, 900px"
+                type="image/{{ format }}" />
+              {% endfor %}
+              <img
+                src="{{ item.introImg1.jpeg[0].url }}"
+                alt="{{ item.introImg1Alt }}"
+            /></picture>
+            {% endif %}
+          </div>
         </div>
-
-        <div class="column__3">
-            <div class="col__left">
-                <img src="/images/inicio/1000x800.png" />
-                <img src="/images/inicio/1000x800.png" />
-            </div>
-            <div class="col__center">
-
-            </div>
-            <div class="col__right">
-                <img src="/images/inicio/1000x800.png" />
-                <img src="/images/inicio/1000x800.png" />
-            </div>
+      </div>
+    </div>
+    <div class="column__2 pad__top__5">
+      <div class="col__left pad__right__5">
+        <h2>{{ item.intro2.intro2Title | safe }}</h2>
+        <div>
+          {{ item.intro2.intro2RichText | safe }}
         </div>
+      </div>
+      <div class="col__right">
+        {% if item.intro2.intro2Img %}
+        <picture>
+          {% for format, images in item.intro2.intro2Img %}
+          <source
+            srcset="{{ images | srcset }}"
+            sizes="(max-width: 900px) 100vw, 900px"
+            type="image/{{ format }}" />
+          {% endfor %}
+          <img
+            src="{{ item.intro2.intro2Img.jpeg[0].url }}"
+            alt="{{ item.intro2.intro2ImgAlt }}"
+        /></picture>
+        {% endif %}
+      </div>
+    </div>
+  </section>
 
-        <div class="column__1 vid__hero">
-            <video id="video__inicio" width="320" height="240" autoplay loop muted>
-                <source src="/images/inicio/emeka_inicio.mp4" type="video/mp4">
-                Tu navegador no soporta este video
-            </video>
-            <div class="titulo__creamos"></div>
-        </div>
+  <section id="section__recentProducts" class="">
+    <div class="featured-projects column__1 pad__lr__5 pad__tb__5">
+      <h2 class="mar__bottom__5">PROYECTOS DESTACADOS</h2>
+      <div class="projects-list column__3 listado__x3">
+        <ul role="list" class="listado_x3 width100 padtop_5">
+          {% for item in item.recentProdRef.recentProducts %}
+          <li class="card card__recentProduct">
+            {% include "producto-card.njk" %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <a href="/all-projects" class="btn btn__hero mar__top__5">
+        VER TODOS LOS DESARROLLOS
+        <span class="arrow-icon" style="margin-left: 10px">→</span>
+      </a>
+    </div>
+  </section>
 
-        <div class="sello">
-            <img src="/images/emeka_sello.svg" alt="EMEKÁ desarrollos" />
-        </div>
-
-    </section>
-
-
-    <section id="section__intro" class="pad__all__10 fadeInOut">
-        <div class="titulo__habitat"></div>
-        <div class="column__2">
-            <div class="col__left width__40">
-                <h3>{{ item.introH3 }}</h3>
-                <h2>{{ item.introH2 }}</h2>
-            </div>
-            <div class="col__right width__60">
-                <div>{{ item.introRichText | safe }}</div>
-                <a class="btn btn__hero">{{ item.introBtn }}</a>
-                <div class="column__2 mar__top__5">
-                    <div class="col__left flex__justify__sb width__30">
-                        {% if item.introImg2 %}
-                        <picture>
-                            {% for format, images in item.introImg2 %}
-                            <source srcset="{{ images | srcset }}" sizes="(max-width: 600px) 100vw, 600px" type="image/{{ format }}">
-                            {% endfor %}
-                            <img src="{{ item.introImg2.jpeg[0].url }}" alt="{{ item.introImg2Alt }}">
-                        </picture>
-                        {% endif %}
-                    </div>
-                    <div class="col__right width__70 pad__left__5">
-                        {% if item.introImg1 %}
-                        <picture>
-                            {% for format, images in item.introImg1 %}
-                            <source srcset="{{ images | srcset }}" sizes="(max-width: 900px) 100vw, 900px" type="image/{{ format }}">
-                            {% endfor %}
-                            <img src="{{ item.introImg1.jpeg[0].url }}" alt="{{ item.introImg1Alt }}">
-                        </picture>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="section__productos" class="pad__all__5">
-        <div class="column__1">
-            <h2>Productos destacados</h2>
-            <ul role="list" class="listado__x3 width__100 pad__top__5">
-                {% for item in item.recentProdRef.recentProducts %}
-                    {% include "producto-card.njk" %}
-                {% endfor %}
-            </ul>
-        </div>
-    </section>
-
-{% endfor %}
+  {% endfor %}
 </div>
+

@@ -121,7 +121,7 @@
 
     <section id="section__productos" class="pad__all__5">
         <div class="column__1">
-            <ul role="list" class="listado__x3 width__100">
+            <ul role="list" class="listado__x3 width__100"><a href="/productos/categorias/departamentos">Departamentos</a>
             </ul>
         </div>
     </section>
@@ -132,10 +132,165 @@
 
             </main>
             <footer>
-    <div class="column__1 listado__x4">
-        <div class="footer__column">
-            <h2>Mapa del sitio</h2>
-            <ul role="list" class="nav__ul nav__ul__left">
+  <div class="column__2 pad__tb__5">
+    <div class="col__left pad__right__5">
+      <h3>contacto</h3>
+      <h2>Entremos en contacto</h2>
+      <ul role="list">
+        
+        <li class="flex flex__col">
+            <h4>Teléfono</h4>
+          <a href="tel:9999704202">9999704202</a>
+        </li>
+        <li class="flex flex__col">
+            <h4>Correo Electrónico</h4>
+          <a href="mailto:contacto@emeka.mx">contacto@emeka.mx</a>
+        </li>
+        <li class="flex flex__col">
+            <h4>Oficinas</h4>
+          <a
+            href="https://www.google.com/maps/place/Emek%C3%A1+Desarrollos/@21.0233011,-89.5773149,18.03z/data=!4m6!3m5!1s0x274ea09b1e7d776b:0xf5c0e3283e738df3!8m2!3d21.0233661!4d-89.5762124!16s%2Fg%2F11y5qdfwny?entry=ttu&amp;g_ep=EgoyMDI0MDkxNi4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            >Calle 7 No. 401 x 18 y 20. Fraccionamiento Altabrisa. C.P. 97134. Mérida, Yucatán, México</a
+          >
+        </li>
+        
+      </ul>
+    </div>
+    <div class="col__right">
+        <form
+    class="column__1 flex__justify__c form"
+    method="post"
+    action="/submit-form"
+    onsubmit="return validateForm()">
+    <div class="column__2 width__100 pad__bottom__5">
+        <div class="col__left pad__right__5">
+            <label for="nombre" class="width__100 pad__bottom__5">Nombre</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Ingresa tu nombre"
+                class="width__100 pad__all__5 "
+                required>
+        </div>
+        <div class="col__right">
+            <label for="telefono" class="width__100 pad__bottom__5">Teléfono</label>
+            <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="Ingresa tu teléfono"
+                class="width__100 pad__all__5 "
+                required>
+        </div>
+    </div>
+    <div class="column__2 width__100 pad__bottom__5">
+        <div class="col__left pad__right__5">
+            <label for="email" class="width__100 pad__bottom__5">Correo electrónico</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Ingresa tu correo electrónico"
+                class="width__100 pad__all__5 "
+                required>
+        </div>
+        <div class="col__right">
+            <label for="ciudad" class="width__100 pad__bottom__5">Ciudad</label>
+            <input
+                type="text"
+                id="ciudad"
+                name="ciudad"
+                placeholder="Ingresa tu ciudad"
+                class="width__100 pad__all__5 "
+                required>
+        </div>
+    </div>
+    <div class="column__2 width__100 pad__bottom__5">
+        <div class="col__left pad__right__5">
+            <label for="desarrollo-interes" class="width__100 pad__bottom__5">Desarrollo de interés</label>
+            <select id="desarrollo-interes" name="desarrollo-interes" class="width__100 pad__all__5 " required>
+                <option value="">Selecciona una opción</option>
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+        </div>
+        <div class="col__right">
+            <label for="etapa-decision" class="width__100 pad__bottom__5">Etapa de decisión</label>
+            <select id="etapa-decision" name="etapa-decision" class="width__100 pad__all__5 " required>
+                <option value="">Selecciona una opción</option>
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+        </div>
+    </div>
+    <label for="comentarios" class="width__100 pad__bottom__5">Comentarios (opcional)</label>
+    <textarea
+        id="comentarios"
+        name="comentarios"
+        placeholder="Ingresa tus comentarios"
+        class="width__100 pad__all__5  pad__bottom__5"></textarea>
+    <button
+        type="submit"
+        class="btn"
+        style="background-color: #333; color: white; border: none; cursor: pointer; margin-top: 20px;">ENVIAR MENSAJE</button>
+</form>
+<script>
+    function validateForm() { // Sanitize user input
+        var nombre = document
+            .getElementById("nombre")
+            .value
+            .trim();
+        var telefono = document
+            .getElementById("telefono")
+            .value
+            .trim();
+        var email = document
+            .getElementById("email")
+            .value
+            .trim();
+        var ciudad = document
+            .getElementById("ciudad")
+            .value
+            .trim();
+        var desarrolloInteres = document
+            .getElementById("desarrollo-interes")
+            .value
+            .trim();
+        var etapaDecision = document
+            .getElementById("etapa-decision")
+            .value
+            .trim();
+        var comentarios = document
+            .getElementById("comentarios")
+            .value
+            .trim();
+        // Check for script injection
+        if (
+            /<[^>]+>/.test(nombre) ||
+            /<[^>]+>/.test(telefono) ||
+            /<[^>]+>/.test(email) ||
+            /<[^>]+>/.test(ciudad) ||
+            /<[^>]+>/.test(desarrolloInteres) ||
+            /<[^>]+>/.test(etapaDecision) ||
+            /<[^>]+>/.test(comentarios)
+        ) {
+            alert("No se permiten etiquetas HTML en los campos del formulario.");
+            return false;
+        }
+        // Submit the form
+        return true;
+    }
+</script>
+    </div>
+  </div>
+  <div class="column__1 listado__x4">
+    <div class="footer__column">
+      <h2>Mapa del sitio</h2>
+      <ul role="list" class="nav__ul nav__ul__left">
     
         <li>
             <a href="/" class="" >
@@ -149,8 +304,7 @@
             </a>
         </li>
     
-</ul>
-            <ul role="list" class="nav__ul nav__ul__right">
+</ul> <ul role="list" class="nav__ul nav__ul__right">
     
         <li>
             <a href="/desarrollos/" class="" >
@@ -165,40 +319,44 @@
         </li>
     
 </ul>
-        </div>
-        <div class="footer__column">
-            <h2>Datos de contacto</h2>
-            <ul>
-                
-                <li>T: <a class="tel__text" href="tel:+5219999704202">9999704202</a></li>
-                <li>C: <a href="mailto:contacto@emeka.mx">contacto@emeka.mx</a></li>
-                <li><a href="https://www.google.com/maps/place/Emek%C3%A1+Desarrollos/@21.0233011,-89.5773149,18.03z/data=!4m6!3m5!1s0x274ea09b1e7d776b:0xf5c0e3283e738df3!8m2!3d21.0233661!4d-89.5762124!16s%2Fg%2F11y5qdfwny?entry=ttu&amp;g_ep=EgoyMDI0MDkxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">Calle 7 No. 401 x 18 y 20. Fraccionamiento Altabrisa. C.P. 97134. Mérida, Yucatán, México</a></li>
-                
-            </ul>
-        </div>
-        <div class="footer__column">
-            <h2>Síguenos</h2>
-            <ul>
-                
-            </ul>
-        </div>
-        <div class="footer__column">
-            
-                <a class="logo__footer" href="/">
-                    <img src="https://cdn.sanity.io/images/nprovn8b/production/a7bbe9527d944f6a28dfbcb0a016222d68fcfb51-189x189.svg" alt="EMEKÁ - Desarrollos inmobiliarios" />
-                </a>
-            
-            
-        </div>
     </div>
-    <div id="inner__footer" class="column__1">
-        <span>
-            
-                EMEKÁ
-            
-            © Todos los derechos reservados | Sitio web creado por <a href="https://marker.com.mx" target="_blank">MARKER branding</a></span>
+    <div class="footer__column">
+      <h2>Desarrollos</h2>
+      <ul>
+        
+        <li>
+          <a href="/desarrollos/altea">Altea</a>
+        </li>
+        
+      </ul>
     </div>
+    <div class="footer__column">
+      <h2>Síguenos</h2>
+      <ul>
+        
+      </ul>
+    </div>
+    <div class="footer__column">
+      
+      <a class="logo__footer" href="/">
+        <img
+          src="https://cdn.sanity.io/images/nprovn8b/production/a7bbe9527d944f6a28dfbcb0a016222d68fcfb51-189x189.svg"
+          alt="EMEKÁ - Desarrollos inmobiliarios"
+        />
+      </a>
+       
+    </div>
+  </div>
+  <div id="inner__footer" class="column__1">
+    <span>
+      
+      EMEKÁ
+       © Todos los derechos reservados | Sitio web creado por
+      <a href="https://marker.com.mx" target="_blank">MARKER branding</a>
+    </span>
+  </div>
 </footer>
+
         </div>
     </div>
 

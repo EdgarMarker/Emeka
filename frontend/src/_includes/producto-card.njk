@@ -1,7 +1,3 @@
-<li class="card card__producto">
-  
-  
-  
   {% if item.categories %}
     <span class="card__category">
       {% for category in item.categories %}
@@ -26,5 +22,4 @@
       <p>No image available</p>
     {% endif %}
   </a>
-  <a class="btn" href="/productos/{{ item.slug.current }}">Más información</a>
-</li>
+  <a class="btn" href="/productos/{{ item.slug.current }}">Más información</a> 

@@ -1,8 +1,8 @@
 ---
 eleventyComputed:
-    title: "{{ products[0].titleseo }}"
-    description: "{{ productos[0].descseo }}"
-    keywords: "{{ productos[0].keyseo }}"
+  title: "{{ products[0].titleseo }}"
+  description: "{{ productos[0].descseo }}"
+  keywords: "{{ productos[0].keyseo }}"
 layout: base.njk
 pagination:
   data: collections.productos
@@ -11,33 +11,177 @@ pagination:
 permalink: "/productos/{{ producto.slug.current }}/"
 ---
 
-<div data-barba="container" data-barba-namespace="producto" data-css="producto" data-js="producto">
-
-  <section id="section__hero" class="pad__lr__5 pad__top__10">
+<div
+  data-barba="container"
+  data-barba-namespace="producto"
+  data-css="producto"
+  data-js="producto"
+>
+  <section id="section__hero" class="">
+    {%if producto.mainImage %}
+    <picture>
+      {% for format, images in producto.mainImage %}
+      <source
+        srcset="{{images | srcset }}"
+        sizes="(max-width: 1200px) 100vw, 1200px"
+        type="image/{{ format }}"
+      />
+      {%endfor%}
+      <img
+        src="{{ producto.mainImage.jpeg[0].url }}"
+        alt="{{ producto.mainImage.altText }}"
+      />
+    </picture>
+    {%endif%}
     <div class="column__1 max1400">
-      <span class="categoria_producto">Tipo de producto: <a href="/productos/categorias/{{producto.categories | slugify}}">{{ producto.categories | join(", ") }}</a></span>
-      <h1>{{ producto.title }}</h1>
+      <div class="cardProduct__head">
+        <h3>{{ producto.categories }}</h3>
+      </div>
+      <div class="cardProduct__body">
+        <div>
+          <h2>{{ producto.title }}</h2>
+          <a href="">VER MAS</a>
+        </div>
+        <div class="width__10 body__logo">
+          {% if producto.logoImg %}
+          <picture>
+            {% for format, images in producto.logoImg %}
+            <source
+              srcset="{{images | srcset }}"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              type="image/{{ format }}"
+            />
+            {%endfor%}
+            <img
+              src="{{ proyecto.logoImg.jpeg[0].url }}"
+              alt="{{ proyecto.logoImg.altText }}"
+            />
+          </picture>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="section__main__image">
-    <div class="column__1 max1400">
-      {% if producto.mainImage %}
+    <div class="column__2 max1400">
+      <div class="col__left">
+        {% if producto.introImage %}
         <picture>
-            {% for format, images in producto.mainImage %}
-            <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
-            {% endfor %}
-            <img src="{{ producto.mainImage.jpeg[0].url }}" alt="{{ producto.mainImage.altText }}">
+          {% for format, images in producto.introImage %}
+          <source
+            srcset="{{ images | srcset }}"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            type="image/{{ format }}"
+          />
+          {% endfor %}
+          <img
+            src="{{ producto.introImage.jpeg[0].url }}"
+            alt="{{ producto.introImage.alt.altText }}"
+          />
         </picture>
+        {% endif %}
+      </div>
+      <div class="col__right pad__left__5">
+        <h3>Descripción general</h3>
+        <h2>{{ producto.introTitle }}</h2>
+        <div>{{ producto.introRichText | safe }}</div>
+        <a href="{{ producto.introProductWeb }}" class="btn" target="_blank"
+          >Abrir sitio web de {{ producto.title }}</a
+        >
+        <a
+          class="brochure"
+          href="{{ producto.introProductBrochure }}"
+          target="_blank"
+          >Descargar brochure de {{ producto.title }}</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section id="section__product__characteristics" class="pad__all__5">
+    <div class="column__2 max1400 block1">
+      <div class="col__left">
+        <div>
+          {{ producto.characteristicsTitle | safe }}
+        </div>
+      </div>
+      <div class="col__right introImg">
+        {% if producto.logoImg %}
+        <picture>
+          {% for format, images in producto.logoImg %}
+          <source
+            srcset="{{images | srcset }}"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            type="image/{{ format }}"
+          />
+          {%endfor%}
+          <img
+            src="{{ proyecto.logoImg.jpeg[0].url }}"
+            alt="{{ proyecto.logoImg.altText }}"
+          />
+        </picture>
+        {% endif %}
+      </div>
+    </div>
+    <div class="column__2 max1400 block2">
+      <div class="col__left">
+        <h3>Características</h3>
+        <div>{{ producto.characteristicsRichText | safe }}</div>
+      </div>
+      <div class="col__right">
+        <h3>Especificaciones</h3>
+        <div>
+          {{ producto.characteristicsSpecifications | safe }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section__product__divisor" class="pad__all__5">
+    <div class="column__1 max1400">
+      {% if producto.divisorImg %}
+      <picture>
+        {% for format, images in producto.divisorImg %}
+        <source
+          srcset="{{ images | srcset }}"
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          type="image/{{ format }}"
+        />
+        {% endfor %}
+        <img
+          src="{{ producto.divisorImg.jpeg[0].url }}"
+          alt="{{ producto.divisorImg.alt.altText }}"
+        />
+      </picture>
       {% endif %}
     </div>
   </section>
-
-  <section id="section__body" class="pad__all__5">
+  <section>
     <div class="column__1 max1400">
-      <h3>Descripción</h3>
-      {{ producto.body | safe }}
+      <h3>Amenidades en {{ producto.title }}</h3>
+      <h2>{{ producto.amenitiesTitle }}</h2>
+      <ul>
+        {% for product in producto %}
+        <li>
+          <h3>{{ amenity.title }}</h3>
+          {% if amenity.icon %}
+          <picture>
+            {% for format, images in amenity.icon %}
+            <source
+              srcset="{{ images | srcset }}"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              type="image/{{ format }}"
+            />
+            {% endfor %}
+            <img
+              src="{{ amenity.icon.jpeg[0].url }}"
+              alt="{{ amenity.icon.alt.altText }}"
+            />
+          </picture>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
     </div>
   </section>
-
 </div>

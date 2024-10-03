@@ -144,6 +144,14 @@
     width: 100%;
 }
 
+.heroGallery{
+    height: 100%;
+    img{
+        height: 100% !important;
+        object-fit: cover;
+    }
+}
+
 #video__inicio{
     width: 100%;
     height: 100vh;
@@ -177,6 +185,27 @@
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+#section__recentProducts{
+    .featured-projects{
+        text-align: center;
+    }
+    .projects-list {
+        display: flex;
+        justify-content: space-around;
+    }
+    .project {
+        margin: 10px;
+      }
+      
+    .project img {
+        width: 100%;
+        height: auto;
+    }
+    .btn{
+        align-self: center;
+    }
 }
 
 

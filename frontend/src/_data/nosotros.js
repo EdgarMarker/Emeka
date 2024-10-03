@@ -25,6 +25,10 @@ module.exports = async function() {
       "media": asset->{url},
       "alt": asset->{altText}
     },
+    introImgDivisor{
+      "media": asset->{url},
+      "alt": asset->{altText}
+    }
   }`);
 
   await Promise.all(data.map(processContent)); // Procesa todo el contenido en cada objeto

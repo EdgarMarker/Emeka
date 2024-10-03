@@ -160,6 +160,10 @@ ol:where([role="list"]) {
     cursor: pointer;
 }
 
+.btn__secondary{
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
 /*  Layout globals  */
 
 section{
@@ -300,6 +304,8 @@ section{
 
 /*  Flexbox  */
 
+.flex {display: flex;}
+.flex__col{flex-direction: column;}
 .flex__align__c { align-items: center; }
 .flex__align__e { align-items: flex-end; }
 .flex__align__s { align-items: stretch; }
@@ -366,12 +372,10 @@ section{
 /*  Cards  */
 
 .card{
-    background-color: #fff;
-    padding: 5%;
     margin: 0px;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: flex-start;
     justify-content: flex-start;
     .card__date{
@@ -405,6 +409,7 @@ section{
     .btn{
         margin-bottom: 0px;
         margin-top: 0%;
+        display: none;
     }
     .excerpt__p{
         font-size: var(--size-sm);
@@ -413,6 +418,43 @@ section{
         -webkit-line-clamp: 3;
         line-clamp: 3;
         overflow: hidden;
+    }
+}
+.card__recentProduct{
+    padding: 0;
+    position: relative;
+    h2{
+        a{
+            font-size: var(--size-2xl) !important;
+        }
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .card__category{
+        display: none;
+    }
+    .btn{
+        display: none;
+    }
+    picture{
+        margin: 0;
+    }
+}
+
+/*Forms*/
+.form{
+    div.column__2{
+        height: fit-content;
+        display: flex;
+        align-items: flex-end;
+    }
+    input, select, textarea{
+        background-color: var(--color-white);
+    }
+    button.btn{
+        border-radius: 0 !important;
     }
 }
 
