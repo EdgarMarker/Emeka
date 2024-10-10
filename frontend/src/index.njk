@@ -147,6 +147,37 @@ permalink: "/{{ page.fileSlug }}/"
         </div>
       </div>
     </div>
+
+    <div class="intro__slider1">
+      {% for band in item.introBand1 %}
+      <picture>
+        {% for format, images in band %}
+        <source
+          srcset="{{ images | srcset }}"
+          sizes="(max-width: 900px) 100vw, 900px"
+          type="image/{{ format }}"
+        />
+        {% endfor %}
+        <img src="{{ band.jpeg[0].url }}" alt="{{ band.altText }}" />
+      </picture>
+      {% endfor %}
+    </div>
+
+    <div class="intro__slider2">
+      {% for band in item.introBand2 %}
+      <picture>
+        {% for format, images in band %}
+        <source
+          srcset="{{ images | srcset }}"
+          sizes="(max-width: 900px) 100vw, 900px"
+          type="image/{{ format }}"
+        />
+        {% endfor %}
+        <img src="{{ band.jpeg[0].url }}" alt="{{ band.altText }}" />
+      </picture>
+      {% endfor %}
+    </div>
+
     <div class="column__2 pad__top__5">
       <div class="col__left pad__right__5">
         <h2>{{ item.intro2.intro2Title | safe }}</h2>
@@ -174,11 +205,11 @@ permalink: "/{{ page.fileSlug }}/"
 
   <section id="section__recentProducts" class="">
     <div class="featured-projects column__1 pad__lr__5 pad__tb__5">
-      <h2 class="mar__bottom__5">PROYECTOS DESTACADOS</h2>
+      <h2 class="mar__bottom__5 semiBold">PROYECTOS DESTACADOS</h2>
       <div class="projects-list column__3 listado__x3">
         <ul role="list" class="listado_x3 width100 padtop_5">
           {% for item in item.recentProdRef.recentProducts %}
-          <li class="card card__recentProduct">
+          <li class="card card__recentProduct textWhite">
             {% include "producto-card.njk" %}
           </li>
           {% endfor %}

@@ -17,6 +17,10 @@ export default defineType({
       name: 'logo',
       title: 'Logo',
     },
+    {
+      name: 'color',
+      title: 'Color',
+    },
   ],
   fields: [
     defineField({
@@ -158,40 +162,89 @@ export default defineType({
       title: 'Divisor',
       type: 'image',
       group: 'product',
-      options: {  
+      options: {
         hotspot: true,
       },
     }),
     defineField({
-      name: "amenitiesTitle",
-      title: "Título de la sección amenidades",
-      type: "string",
-      group: "product"
+      name: 'amenitiesTitle',
+      title: 'Título de la sección amenidades',
+      type: 'string',
+      group: 'product',
     }),
     defineField({
-      name: "amenities",
-      title: "Amenidades",
-      type: "array",
-      group: "product",
-      of: [{
-        type: "object", 
-        fields: [
-          {
-            name: "title",
-            title: "Título",
-            type: "string"
+      name: 'amenities',
+      title: 'Amenidades',
+      type: 'array',
+      group: 'product',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Título',
+              type: 'string',
+            },
+            {
+              name: 'icon',
+              title: 'Icono',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+          ],
+        },
+      ],
+      validation: (rule) => rule.max(3).warning('Un máximo de 10 amenidades'),
+    }),
+    defineField({
+      name: 'mapTitle',
+      title: 'Título de sección mapa',
+      type: 'blockContent',
+      group: 'product',
+    }),
+    defineField({
+      name: 'mapRichText',
+      title: 'Descripción sección del mapa',
+      type: 'blockContent',
+      group: 'product',
+    }),
+    defineField({
+      name: 'mapLink',
+      title: 'Link de google maps del mapa',
+      type: 'string',
+      group: 'product',
+    }),
+    defineField({
+      name: 'map',
+      title: 'Iframe del mapa',
+      type: 'text',
+      group: 'product',
+    }),
+    defineField({
+      name: 'galleryImages',
+      title: 'Galería de imágenes de sección',
+      group: 'product',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
           },
-          {
-            name: "icon",
-            title: "Icono",
-            type: "image",
-            options: {
-              hotspot: true
-            }
-          }
-        ]
-      }],
-      validation: (rule) => rule.max(3).warning('Un máximo de 10 amenidades')
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
+    }),
+    defineField({
+      name: 'color',
+      title: 'Color destacado de producto',
+      type: 'color',
+      group: 'color',
     })
   ],
 

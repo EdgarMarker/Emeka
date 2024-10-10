@@ -187,6 +187,35 @@
     background-size: contain;
 }
 
+.intro__slider1{
+	width:150vw;
+	height:45vh;
+	font-size:10vw;
+	text-align:center;
+	position:relative;
+	transform:translatex(50vw);
+	left:-50vw;
+	display:flex;
+	flex-direction:row;
+	align-items:flex-end;
+	justify-content:stretch;
+	gap:60px;
+	margin-bottom:60px;
+}
+.intro__slider2{
+	width:150vw;
+	height:45vh;
+	font-size:10vw;
+	text-align:center;
+	position:relative;
+	transform:translatex(-50vw);
+	display:flex;
+	flex-direction:row;
+	align-items:flex-start;
+	justify-content:stretch;
+	gap:60px;
+}
+
 #section__recentProducts{
     .featured-projects{
         text-align: center;
@@ -230,4 +259,14 @@
 #section__productos .column__1{
     border-top: 1px solid #ccc;
     padding-top: 5%;
+}
+
+@media screen and (max-width: 768px) {
+    .intro__slider1, .intro__slider2{
+        height: fit-content;
+        gap: 20px;
+        img{
+            min-width: 150px;
+        }
+    }
 }

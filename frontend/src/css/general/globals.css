@@ -97,7 +97,7 @@ h1{
 
 h2{
     font-size: var(--size-2xl);
-    color: var(--color-primary);
+    color: var(--color-black);
     font-weight: 400;
     line-height: 1.1;
     margin-bottom: 20px;
@@ -497,16 +497,29 @@ section{
     }
 }
 
+.textWhite{
+    h2{
+        color: var(--color-white);
+    }
+}
+.bold{
+    h2{
 
+        font-weight: bold;
+    }
+}
 
-
+.semiBold{
+    h2{
+        font-weight: 500;
+    }
+}
 
 
 
 
 /*  Tableta  */
 @media only screen and (max-width: 1024px) {
-
     
     .column__2{
         flex-direction: column;
@@ -574,6 +587,7 @@ section{
 /*  Móvil  */
 @media only screen and (max-width: 768px) {
 
+    
     .column__3{
         flex-direction: column;
     }

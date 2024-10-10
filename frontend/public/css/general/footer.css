@@ -119,6 +119,16 @@ footer{
         row-gap: 80px;
         column-gap: 50px;
     }
+    .form{
+        .column__2{
+            label{
+                margin-top: 1em;
+            }
+            .col__left{
+                padding: 0;
+            }
+        }
+    }
 
 }
 

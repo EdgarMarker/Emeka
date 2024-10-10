@@ -126,6 +126,20 @@ export default {
             group: 'intro'
         },
         {
+            name: 'introBand1',
+            title: 'Tira de imágenes para la introducción',
+            type: 'array',
+            group: 'intro',
+            of: [{type: 'image'}]
+        },
+        {
+            name: 'introBand2',
+            title: 'Tira de imágenes para la introducción',
+            type: 'array',
+            group: 'intro',
+            of: [{type: 'image'}]
+        },
+        {
             name: 'intro2',
             title: 'Segunda sección de introducción',
             group: 'intro',

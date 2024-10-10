@@ -9,6 +9,7 @@ pagination:
   size: 1
   alias: producto
 permalink: "/productos/{{ producto.slug.current }}/"
+
 ---
 
 <div
@@ -38,11 +39,12 @@ permalink: "/productos/{{ producto.slug.current }}/"
         <h3>{{ producto.categories }}</h3>
       </div>
       <div class="cardProduct__body">
-        <div>
+        <div class="body__info">
           <h2>{{ producto.title }}</h2>
           <a href="">VER MAS</a>
         </div>
-        <div class="width__10 body__logo">
+        <div class="width__10 body__logo" id="hero-logo-product-container"
+        data-color="{{ producto.color.hex }}">
           {% if producto.logoImg %}
           <picture>
             {% for format, images in producto.logoImg %}
@@ -63,7 +65,7 @@ permalink: "/productos/{{ producto.slug.current }}/"
     </div>
   </section>
 
-  <section id="section__main__image">
+  <section id="section__main__image " class="pad__lr__5">
     <div class="column__2 max1400">
       <div class="col__left">
         {% if producto.introImage %}
@@ -156,32 +158,133 @@ permalink: "/productos/{{ producto.slug.current }}/"
       {% endif %}
     </div>
   </section>
-  <section>
+
+  <section id="section__product__amenities" class="pad__top__5 pad__lr__5">
     <div class="column__1 max1400">
       <h3>Amenidades en {{ producto.title }}</h3>
-      <h2>{{ producto.amenitiesTitle }}</h2>
-      <ul>
-        {% for product in producto %}
-        <li>
-          <h3>{{ amenity.title }}</h3>
-          {% if amenity.icon %}
-          <picture>
-            {% for format, images in amenity.icon %}
-            <source
-              srcset="{{ images | srcset }}"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              type="image/{{ format }}"
-            />
-            {% endfor %}
-            <img
-              src="{{ amenity.icon.jpeg[0].url }}"
-              alt="{{ amenity.icon.alt.altText }}"
-            />
-          </picture>
-          {% endif %}
-        </li>
-        {% endfor %}
+      <h2 class="">{{ producto.amenitiesTitle }}</h2>
+      
+      <ul role="list">
+        {% if producto.amenities and (producto.amenities | length) > 0 %}
+          {% for amenity in producto.amenities %}
+            <li class="flex flex__col flex__align__c">
+              <h3>{{ amenity.title }}</h3>
+              {% if amenity.icon and amenity.icon.url %}
+                <picture>
+                  <img 
+                    src="{{ amenity.icon.url }}" 
+                    alt="{{ amenity.title }}"
+                  />
+                </picture>
+              {% else %}
+                <p>No hay icono disponible para: {{ amenity.title }}</p>
+              {% endif %}
+            </li>
+          {% endfor %}
+        {% else %}
+          <li>No hay amenidades disponibles.</li>
+        {% endif %}
       </ul>
     </div>
   </section>
+
+  <section id="section__product__map " class="pad__top__5 pad__lr__5">
+    <div class="column__2">
+      <div class="col__left">
+        <h3>UBICACIÓN</h3>
+        <H2>{{ producto.mapTitle | safe }}</H2>
+        <div>
+          {{ producto.mapRichText | safe }}
+        </div>
+        <a class="btn btn__secondary" href="{{ producto.mapLink }}" target="_blank">ABRIR EN GOOGLE MAPS</a>
+      </div>  
+      <div class="col__right">
+        <div id="map-container-product" data-map-iframe="{{ producto.map }}"></div>
+      </div>
+  </section>
+  
+  <section id="section__product__gallery" class="pad__all__5">
+    <div class="column__1 max1400">
+      <h3>Galería</h3>
+      <h2>Imágenes de {{ producto.title }}</h2>
+      <div id="main-carousel" class="splide" aria-label="Splide Basic HTML Example" role="group">
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for item in producto.galleryImages %}
+                <li class="splide__slide">
+                <picture>
+                    {% for format, images in item %}
+                    <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
+                    {% endfor %}
+                    <img src="{{ item.webp[0].url }}" alt="{{ producto.gallery.altText }}">
+                </picture>
+              </li>
+            {% endfor %}
+          </ul>
+          
+        </div>
+      </div>
+      
+      <div id="thumbnail-carousel" class="splide" aria-label="Splide Basic HTML Example" role="group">
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for item in producto.galleryImages %}
+                <li class="splide__slide">
+                <picture>
+                    {% for format, images in item %}
+                    <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
+                    {% endfor %}
+                    <img src="{{ item.webp[0].url }}" alt="{{ producto.gallery.altText }}">
+                </picture>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<script>
+  // clean iframe
+
+  document.addEventListener( 'DOMContentLoaded', function () {
+  var main = new Splide( '#main-carousel', {
+    type      : 'fade',
+    rewind    : true,
+    pagination: false,
+    arrows    : true,
+  } );
+
+
+  var thumbnails = new Splide( '#thumbnail-carousel', {
+    fixedWidth  : 100,
+    fixedHeight : 60,
+    gap         : 10,
+    rewind      : true,
+    pagination  : false,
+    isNavigation: true,
+    arrows      : false,
+    breakpoints : {
+      600: {
+        fixedWidth : 60,
+        fixedHeight: 44,
+      },
+    },
+  } );
+
+
+  main.sync( thumbnails );
+  main.mount();
+  thumbnails.mount();
+} );
+
+ 
+  console.log(data)
+  //get color
+  const containerIcon = document.getElementById('hero-logo-product-container');
+    const color = containerIcon.getAttribute('data-color');
+    containerIcon.style.backgroundColor = color;
+  </script>

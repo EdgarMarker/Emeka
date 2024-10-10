@@ -1,8 +1,8 @@
-#inner__header .nav__ul li:nth-child(2) a{
+#inner__header .nav__ul.nav__ul__right li:nth-child(1) a{
     color: var(--color-black);
 }
 
-#inner__header .nav__ul li:nth-child(2) a::before{
+#inner__header .nav__ul.nav__ul__right li:nth-child(1) a::before{
     display: block;
 }
 
@@ -12,28 +12,34 @@
     background-color: var(--color-secondary);
     max-height: 101dvh;
     overflow: hidden;
-    .column__1{
+    div.column__1{
+        max-width: 640px;
         position: absolute;
-        left: 5%;
         bottom: 0;
-        .cardProduct__head{
+        left: 5%;
+        div.cardProduct__head{
             background-color: var(--color-accent);
             padding: 1em;
         }
-        .cardProduct__body{
+        div.cardProduct__body{
             background-color: var(--color-accent);
-            padding: 1em;
             margin-top: -3px;
             display: flex;
-            width: fit-content;
+            justify-content: space-between;
+            align-items: center;
             div {
                 display: flex;
                 flex-direction: column;
             }
+            .body__info{
+                padding: 1em;
+            }
             .body__logo{
-                margin-left: 5em;
-                background-color: red;
+                aspect-ratio: 1/1;
+                width: 20%;
                 img{
+                    width: clamp(40px, 100%, 80px);
+                    aspect-ratio: 1/1;
                     width: 100%;
                     height: 100%;
                     object-fit: contain;
@@ -63,9 +69,12 @@ h1{
 }
 
 #section__main__image{
-    background-color: var(--color-secondary-light);
+    background-color: red;
     position: relative;
     overflow: hidden;
+    .column__2{
+        justify-content: space-between;
+    }
     .col__right{
         justify-content: center;
         a{
@@ -153,3 +162,119 @@ h1{
     background-image: url(/images/bg_yellow.svg);
     z-index: -1;
 }
+
+#section__product__amenities{
+    background-image: url(/images/bg_yellow.svg);
+    margin: -3px 0;
+    h2{
+        border-bottom: 1px solid var(--color-black);  
+        width: 100%;
+    }
+    ul{
+        padding-top: 5%;
+        display: flex;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .column__1{
+        border-bottom: 5px solid var(--color-black);
+        padding-bottom: 5%;
+    }
+}
+
+#section__product__map{
+    background-color: var(--color-secondary-light);
+    .column__2{
+        border-bottom: 1px solid var(--color-black);
+        padding-bottom: 5%;
+        .col__left{
+            justify-content: center;
+        }
+    }
+    #map-container-product{
+        width: 100%;
+        height: 60vh;
+    }
+}
+#section__product__map::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 100%;
+    height: 20%;
+    background-image: url(/images/bg_yellow.svg);
+    z-index: -1;
+}
+
+#section__product__gallery{
+    .product-gallery {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .product-gallery .splide__arrow {
+        background: rgba(255, 255, 255, 0.8);
+      }
+      
+      .product-gallery .splide__pagination__page {
+        background: rgba(255, 255, 255, 0.8);
+      }
+      
+      .product-gallery .splide__slide {
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      
+      .thumbnail-carousel .splide__slide {
+        opacity: 0.6;
+        transition: opacity 0.3s;
+        cursor: pointer;
+      }
+      
+      .thumbnail-carousel .splide__slide.is-active {
+        opacity: 1;
+      }
+}
+
+#main-carousel{
+  max-height: 80vh;
+  overflow: hidden;
+  li img{
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+  }
+}
+
+#thumbnail-carousel{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+    #section__hero{
+        .column__1{
+            left: 0;
+        }
+    }
+    #section__product__characteristics{
+        .introImg{
+            img{
+                height: 100%;
+                max-height: 250px;
+                object-fit: contain;
+            }
+        }
+    }
+    #section__product__amenities{
+        ul{
+            grid-template-columns: repeat(3, 1fr);
+            li{
+                aspect-ratio: 1/1;
+            }
+        }
+    }
+}   

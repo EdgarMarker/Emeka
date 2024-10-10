@@ -5,10 +5,15 @@ module.exports = async function () {
   const data = await client.fetch(`*[_type == "products"]{
     titleseo,
     descseo,
+    color{hex},
     keyseo,
     title,
     slug,
     publishedAt,
+    galleryImages[]{
+      "media": asset->{url},
+      "alt": asset->{altText}
+    },
     "categories": categories[]->title,
     "categoriesSlug": categories[]->slug,
     body[]{
@@ -43,8 +48,20 @@ module.exports = async function () {
         "media": asset->{url},
         "alt": asset->{altText}
     },
-     
-  }`);
+     amenitiesTitle,
+     "amenities": amenities[]{
+        title,
+        icon{
+          "media": asset->{url},
+          "alt": asset->{altText
+        }
+    },
+  },
+    mapTitle,
+    mapRichText,
+    mapLink,
+    map,
+}`);
 
   await Promise.all(data.map(processContent)); // Procesa todo el contenido en cada objeto
   return data; // Devuelve el array con las imágenes y textos ya procesados

@@ -1,8 +1,8 @@
-#inner__header .nav__ul li:nth-child(2) a {
+#inner__header .nav__ul.nav__ul__right li:nth-child(1) a {
   color: var(--color-black);
 }
 
-#inner__header .nav__ul li:nth-child(2) a::before {
+#inner__header .nav__ul.nav__ul__right li:nth-child(1) a::before {
   display: block;
 }
 

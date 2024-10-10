@@ -59,6 +59,18 @@ module.exports = async function() {
       }
     },
     introRichText1,
+    introBand1[]{
+      "media": asset->{url},
+      "alt": asset->{altText}
+    },
+    introBand1[]{
+      "media": asset->{url},
+      "alt": asset->{altText}
+    },
+    introBand2[]{
+      "media": asset->{url},
+      "alt": asset->{altText}
+    },
     intro2{
       intro2Title,
       intro2RichText,
