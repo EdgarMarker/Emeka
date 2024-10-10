@@ -62,7 +62,7 @@
         <ul role="list" class="nav__ul nav__ul__right">
     
         <li>
-            <a href="/desarrollos/" class="" >
+            <a href="/desarrollos/" class="active" >
                 Desarrollos
             </a>
         </li>
@@ -110,13 +110,20 @@
             <main>
                 
 <div data-barba="container" data-barba-namespace="productos" data-css="productos" data-js="productos">
-
   
-
-  <section id="section__intro" class="pad__all__5">
-      <div class="column__1">
-          <h2>Productos</h2>
-          <ul role="list" class="listado__x3 width__100">  
+    <section id="section__hero" class="pad__lr__5">
+      <div class="column__2">
+        <div class="col__left flex__justify__c pad__right__5 width__45">
+          <div class='semiBold'><h2>Creamos comunidades que viven en armonía con el medio ambiente</h2></div>
+        </div>
+        <div class="col__right width__55"></div>
+      </div>
+    </section>
+  
+  <section id="section__intro" class="pad__bottom__5 pad__lr__5">
+    <div class="column__1">
+      <ul role="list" class="listado__x3 width__100 ul__desarrollos"><li class="card li__desarrollos">
+              
     <span class="card__category">
       
         <a href="/productos/categorias/departamentos">Departamentos</a> /
@@ -139,13 +146,11 @@
     
   </a>
   <a class="btn" href="/productos/altea">Más información</a> 
-          </ul>
-      </div>
+          </li>
+      </ul>
+    </div>
   </section>
-
-
-  <!-- //Usar en caso de requerir paginación:
-  <nav>
+  <!-- //Usar en caso de requerir paginación: <nav>
       <ul>
         
         
@@ -153,9 +158,7 @@
         
         
       </ul>
-    </nav>
-    -->
-
+  </nav> -->
 </div>
             </main>
             <footer>
@@ -186,6 +189,7 @@
     </div>
     <div class="col__right">
         <form
+    id='form'
     class="column__1 flex__justify__c form"
     method="post"
     action="/submit-form"
@@ -193,13 +197,7 @@
     <div class="column__2 width__100 pad__bottom__5">
         <div class="col__left pad__right__5">
             <label for="nombre" class="width__100 pad__bottom__5">Nombre</label>
-            <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Ingresa tu nombre"
-                class="width__100 pad__all__5 "
-                required>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" class="width__100 pad__all__5 " required>
         </div>
         <div class="col__right">
             <label for="telefono" class="width__100 pad__bottom__5">Teléfono</label>
@@ -225,13 +223,7 @@
         </div>
         <div class="col__right">
             <label for="ciudad" class="width__100 pad__bottom__5">Ciudad</label>
-            <input
-                type="text"
-                id="ciudad"
-                name="ciudad"
-                placeholder="Ingresa tu ciudad"
-                class="width__100 pad__all__5 "
-                required>
+            <input type="text" id="ciudad" name="ciudad" placeholder="Ingresa tu ciudad" class="width__100 pad__all__5 " required>
         </div>
     </div>
     <div class="column__2 width__100 pad__bottom__5">
@@ -334,7 +326,7 @@
 </ul> <ul role="list" class="nav__ul nav__ul__right">
     
         <li>
-            <a href="/desarrollos/" class="" >
+            <a href="/desarrollos/" class="active" >
                 Desarrollos
             </a>
         </li>
