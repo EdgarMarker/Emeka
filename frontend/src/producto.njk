@@ -18,7 +18,7 @@ permalink: "/productos/{{ producto.slug.current }}/"
   data-css="producto"
   data-js="producto"
 >
-  <section id="section__hero" class="">
+  <section id="section__hero">
     {%if producto.mainImage %}
     <picture>
       {% for format, images in producto.mainImage %}
@@ -34,7 +34,7 @@ permalink: "/productos/{{ producto.slug.current }}/"
       />
     </picture>
     {%endif%}
-    <div class="column__1 max1400">
+    <div class="column__1">
       <div class="cardProduct__head">
         <h3>{{ producto.categories }}</h3>
       </div>
@@ -65,9 +65,9 @@ permalink: "/productos/{{ producto.slug.current }}/"
     </div>
   </section>
 
-  <section id="section__main__image" class="pad__lr__5">
-    <div class="column__2 max1400">
-      <div class="col__left">
+  <section id="section__main__image" class="pad__lr__5 hiddenPseudo ">
+    <div class="column__2">
+      <div class="col__left hiddenPseudo">
         {% if producto.introImage %}
         <picture>
           {% for format, images in producto.introImage %}
@@ -84,7 +84,7 @@ permalink: "/productos/{{ producto.slug.current }}/"
         </picture>
         {% endif %}
       </div>
-      <div class="col__right pad__left__5">
+      <div class="col__right pad__left__5 hiddenPseudo">
         <h3>Descripción general</h3>
         <h2>{{ producto.introTitle }}</h2>
         <div>{{ producto.introRichText | safe }}</div>
@@ -188,7 +188,7 @@ permalink: "/productos/{{ producto.slug.current }}/"
     </div>
   </section>
 
-  <section id="section__product__map " class="pad__top__5 pad__lr__5">
+  <section id="section__product__map" class="pad__top__5 pad__lr__5 hiddenPseudo">
     <div class="column__2">
       <div class="col__left">
         <h3>UBICACIÓN</h3>
@@ -199,7 +199,7 @@ permalink: "/productos/{{ producto.slug.current }}/"
         <a class="btn btn__secondary" href="{{ producto.mapLink }}" target="_blank">ABRIR EN GOOGLE MAPS</a>
       </div>  
       <div class="col__right">
-        <div id="map-container-product" data-map-iframe="{{ producto.map }}"></div>
+        <div id="map-container-product" data-map-iframe-product="{{ producto.map }}"></div>
       </div>
   </section>
   
@@ -287,4 +287,40 @@ permalink: "/productos/{{ producto.slug.current }}/"
   const containerIcon = document.getElementById('hero-logo-product-container');
     const color = containerIcon.getAttribute('data-color');
     containerIcon.style.backgroundColor = color;
+
+
+  //map iframe
+  document.addEventListener('DOMContentLoaded', function() {
+  const mapContainer = document.getElementById('map-container-product');
+  const iframeString = mapContainer.getAttribute('data-map-iframe-product');
+  
+  if (iframeString) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(iframeString, 'text/html');
+    const iframe = doc.querySelector('iframe');
+
+    if (iframe) {
+      // Copiar los atributos existentes
+      const newIframe = document.createElement('iframe');
+      Array.from(iframe.attributes).forEach(attr => {
+        newIframe.setAttribute(attr.name, attr.value);
+      });
+
+      // Asegurar que tenga los atributos deseados
+      newIframe.width = '100%';
+      newIframe.height = '100%';
+      newIframe.style.border = '0';
+      newIframe.allowFullscreen = true;
+      newIframe.loading = 'lazy';
+      newIframe.referrerPolicy = 'no-referrer-when-downgrade';
+      
+      // Asegurar que tenga un título para accesibilidad
+      if (!newIframe.hasAttribute('title')) {
+        newIframe.title = 'Google Maps';
+      }
+
+      mapContainer.appendChild(newIframe);
+    }
+  }
+});
   </script>

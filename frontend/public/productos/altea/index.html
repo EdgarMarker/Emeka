@@ -115,7 +115,7 @@
   data-css="producto"
   data-js="producto"
 >
-  <section id="section__hero" class="">
+  <section id="section__hero">
     
     <picture>
       
@@ -137,7 +137,7 @@
       />
     </picture>
     
-    <div class="column__1 max1400">
+    <div class="column__1">
       <div class="cardProduct__head">
         <h3>Departamentos</h3>
       </div>
@@ -174,9 +174,9 @@
     </div>
   </section>
 
-  <section id="section__main__image" class="pad__lr__5">
-    <div class="column__2 max1400">
-      <div class="col__left">
+  <section id="section__main__image" class="pad__lr__5 hiddenPseudo ">
+    <div class="column__2">
+      <div class="col__left hiddenPseudo">
         
         <picture>
           
@@ -199,7 +199,7 @@
         </picture>
         
       </div>
-      <div class="col__right pad__left__5">
+      <div class="col__right pad__left__5 hiddenPseudo">
         <h3>Descripción general</h3>
         <h2>Un diseño elegante y un ambiente exclusivo</h2>
         <div><p>Altea es un complejo de lujo compuesto por 26 departamentos. Ubicado en el corazón de Altabrisa, una de las zonas mas exclusivas, con un alto nivel de seguridad y de mayor plusvalía en la ciudad de Mérida.</p></div>
@@ -323,7 +323,7 @@
     </div>
   </section>
 
-  <section id="section__product__map " class="pad__top__5 pad__lr__5">
+  <section id="section__product__map" class="pad__top__5 pad__lr__5 hiddenPseudo">
     <div class="column__2">
       <div class="col__left">
         <h3>UBICACIÓN</h3>
@@ -334,7 +334,7 @@
         <a class="btn btn__secondary" href="https://www.google.com/maps?q=21.0278125,-89.5871875" target="_blank">ABRIR EN GOOGLE MAPS</a>
       </div>  
       <div class="col__right">
-        <div id="map-container-product" data-map-iframe="&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3724.121786566035!2d-89.58976242474341!3d21.027812480621343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDAxJzQwLjEiTiA4OcKwMzUnMTMuOSJX!5e0!3m2!1sen!2smx!4v1727986300817!5m2!1sen!2smx&quot; width=&quot;600&quot; height=&quot;450&quot; style=&quot;border:0;&quot; allowfullscreen=&quot;&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;no-referrer-when-downgrade&quot;&gt;&lt;/iframe&gt;"></div>
+        <div id="map-container-product" data-map-iframe-product="&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3724.121786566035!2d-89.58976242474341!3d21.027812480621343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDAxJzQwLjEiTiA4OcKwMzUnMTMuOSJX!5e0!3m2!1sen!2smx!4v1727986300817!5m2!1sen!2smx&quot; width=&quot;600&quot; height=&quot;450&quot; style=&quot;border:0;&quot; allowfullscreen=&quot;&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;no-referrer-when-downgrade&quot;&gt;&lt;/iframe&gt;"></div>
       </div>
   </section>
   
@@ -580,6 +580,42 @@
   const containerIcon = document.getElementById('hero-logo-product-container');
     const color = containerIcon.getAttribute('data-color');
     containerIcon.style.backgroundColor = color;
+
+
+  //map iframe
+  document.addEventListener('DOMContentLoaded', function() {
+  const mapContainer = document.getElementById('map-container-product');
+  const iframeString = mapContainer.getAttribute('data-map-iframe-product');
+  
+  if (iframeString) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(iframeString, 'text/html');
+    const iframe = doc.querySelector('iframe');
+
+    if (iframe) {
+      // Copiar los atributos existentes
+      const newIframe = document.createElement('iframe');
+      Array.from(iframe.attributes).forEach(attr => {
+        newIframe.setAttribute(attr.name, attr.value);
+      });
+
+      // Asegurar que tenga los atributos deseados
+      newIframe.width = '100%';
+      newIframe.height = '100%';
+      newIframe.style.border = '0';
+      newIframe.allowFullscreen = true;
+      newIframe.loading = 'lazy';
+      newIframe.referrerPolicy = 'no-referrer-when-downgrade';
+      
+      // Asegurar que tenga un título para accesibilidad
+      if (!newIframe.hasAttribute('title')) {
+        newIframe.title = 'Google Maps';
+      }
+
+      mapContainer.appendChild(newIframe);
+    }
+  }
+});
   </script>
 
             </main>

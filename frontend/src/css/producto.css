@@ -69,7 +69,7 @@ h1{
 }
 
 #section__main__image{
-    background-color: red;
+    background-color: var(--color-secondary-light);
     position: relative;
     overflow: hidden;
     .column__2{
@@ -255,9 +255,21 @@ h1{
 }
 
 @media (max-width: 768px) {
+    .hiddenPseudo::after, 
+    .hiddenPseudo::before {
+        opacity: 0;
+    }
+    #section__main__image{
+        .column__2{
+            .col__right{
+                padding-top: 5%;
+                padding-left: 0;
+            }
+        }
+    }
     #section__hero{
         .column__1{
-            left: 0;
+            left: 0 !important;
         }
     }
     #section__product__characteristics{
