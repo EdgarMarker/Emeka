@@ -14,17 +14,31 @@
   <h2>
     <a href="/productos/{{ item.slug.current }}">{{ item.title }}</a>
   </h2>
-  <p>{{item.place}}</p>
-</div> 
-{% if item.mainImage %}
-  <a class="card__pic" href="/productos/{{ item.slug.current }}">
+  <p>{{ item.place }}</p>
+</div>
+
+<div>
+  {% if item.logoImg %}
     <picture>
-      {% for format, images in item.mainImage %}
+      {% for format, images in item.logoImg %}
         <source srcset="{{ images | srcset }}" sizes="(max-width: 600px) 100vw, 600px" type="image/{{ format }}">
         {% endfor %}
-        <img src="{{ item.mainImage.jpeg[0].url }}" alt="{{ item.mainImageAlt }}"></picture>
-      {% else %}
-        <p>No image available</p>
+        <img src="{{ item.logoImg.jpeg[0].url }}" alt="{{ item.logoImgAlt }}">
+        {% else %}
+          <p>No image available</p>
+        </picture>
       {% endif %}
-    </a>
-    <a class="btn" href="/productos/{{ item.slug.current }}">Más información</a>
+    </div>
+    
+    {% if item.mainImage %}
+      <a class="card__pic" href="/productos/{{ item.slug.current }}">
+        <picture>
+          {% for format, images in item.mainImage %}
+            <source srcset="{{ images | srcset }}" sizes="(max-width: 600px) 100vw, 600px" type="image/{{ format }}">
+            {% endfor %}
+            <img src="{{ item.mainImage.jpeg[0].url }}" alt="{{ item.mainImageAlt }}"></picture>
+          {% else %}
+            <p>No image available</p>
+          {% endif %}
+        </a>
+        <a class="btn" href="/productos/{{ item.slug.current }}">Más información</a>

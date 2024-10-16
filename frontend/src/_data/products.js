@@ -47,7 +47,8 @@ module.exports = async function () {
     characteristicsSpecifications,
     divisorImg{
         "media": asset->{url},
-        "alt": asset->{altText}
+        "alt": asset->{altText},
+        "desc": asset->{description}
     },
      amenitiesTitle,
      "amenities": amenities[]{

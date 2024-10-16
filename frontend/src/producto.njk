@@ -86,7 +86,7 @@ permalink: "/productos/{{ producto.slug.current }}/"
         {% endif %}
       </div>
     </div>
-    <div class="column__2 max1400 block2">
+    <div class="column__2 block2">
       <div class="col__left">
         <h3>Características</h3>
         <div>{{ producto.characteristicsRichText | safe }}</div>
@@ -107,6 +107,7 @@ permalink: "/productos/{{ producto.slug.current }}/"
             <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}"/>
           {% endfor %}
           <img src="{{ producto.divisorImg.jpeg[0].url }}" alt="{{ producto.divisorImg.alt.altText }}"/>
+          <span>{{ producto.divisorImg.desc.description }} l</span>
         </picture>
       {% endif %}
     </div>
@@ -150,7 +151,6 @@ permalink: "/productos/{{ producto.slug.current }}/"
         <div id="mapa-test"></div>
       </div>
     </section>
-
     <section id="section__product__gallery" class="pad__all__10">
       <div class="column__1">
         <h3>Galería</h3>
@@ -191,7 +191,7 @@ permalink: "/productos/{{ producto.slug.current }}/"
           <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
             <script>
-              //carrousel
+              // carrousel
               document.addEventListener('DOMContentLoaded', function () {
                 var main = new Splide('#main-carousel', {
                   type: 'fade',
@@ -224,12 +224,10 @@ permalink: "/productos/{{ producto.slug.current }}/"
               const color = containerIcon.getAttribute('data-color');
               containerIcon.style.backgroundColor = color;
             </script>
-
             <script>
               document.addEventListener('DOMContentLoaded', function () {
                 const mapContainer = document.getElementById('map-container-product');
                 const iframeString = mapContainer.getAttribute('data-map-iframe-product');
-
                 if (iframeString) {
                   const parser = new DOMParser();
                   const doc = parser.parseFromString(iframeString, 'text/html');

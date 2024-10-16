@@ -83,6 +83,10 @@ module.exports = async function() {
       "recentProducts": recentProducts[]->{
         title,
     slug,
+    logoImg{
+      "media": asset->{url},
+      "alt": asset->{altText}
+    },
     publishedAt,
     "categories": categories[]->title,
     mainImage{
