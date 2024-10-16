@@ -223,6 +223,12 @@
     .projects-list {
         display: flex;
         justify-content: space-around;
+        ul{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
     }
     .project {
         margin: 10px;
@@ -230,7 +236,7 @@
       
     .project img {
         width: 100%;
-        height: auto;
+        height: 100%;
     }
     .btn{
         align-self: center;

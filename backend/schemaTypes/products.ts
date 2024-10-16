@@ -119,6 +119,12 @@ export default defineType({
       group: 'product',
     }),
     defineField({
+      name: 'place',
+      title: 'Lugar',
+      type: 'string',
+      group: 'product',
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Fecha de publicación',
       type: 'datetime',
@@ -245,7 +251,7 @@ export default defineType({
       title: 'Color destacado de producto',
       type: 'color',
       group: 'color',
-    })
+    }),
   ],
 
   preview: {

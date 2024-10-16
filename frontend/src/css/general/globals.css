@@ -384,12 +384,18 @@ section{
         font-size: var(--size-xs);
         text-transform: capitalize;
     }
+    .card__info{
+        h2{
+            font-weight: bold;
+        }
+    }
     .card__category{
         font-size: var(--size-xs);
     }
     .card__category a{
         font-size: inherit;
         margin-bottom: 10px;
+        color: #B1B1B1;
     }
     .card__category a:hover{
         text-decoration: underline;

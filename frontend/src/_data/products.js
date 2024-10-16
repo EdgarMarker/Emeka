@@ -8,6 +8,7 @@ module.exports = async function () {
     color{hex},
     keyseo,
     title,
+    place,
     slug,
     publishedAt,
     galleryImages[]{

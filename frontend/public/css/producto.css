@@ -10,6 +10,7 @@
 
 #section__hero{
     background-color: var(--color-secondary);
+    position: relative;
     min-height: 101dvh;
     overflow: hidden;
     display: flex;
@@ -21,7 +22,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: fill;
         object-position: center;    
     }
     div.column__2{
@@ -207,10 +208,11 @@ h1{
             justify-content: center;
         }
     }
-    #map-container-product{
-        width: 100%;
-        height: 60vh;
-    }
+}
+
+#map-container-product{
+    width: 100%;
+    height: 70vh;
 }
 #section__product__map::after{
     content: "";
@@ -218,7 +220,7 @@ h1{
     left: 0;
     top: -1px;
     width: 100%;
-    height: 20%;
+    height: 20vh;
     background-image: url(/images/bg_yellow.svg);
     z-index: -1;
 }
