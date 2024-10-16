@@ -272,6 +272,7 @@ section{
 .pad__right__5{ padding-right: 5%; }
 .pad__top__5{ padding-top: 5%; }
 .pad__bottom__5{ padding-bottom: 5%; }
+.pad__bottom__2{ padding-bottom: 2%; }
 
 .pad__left__10{ padding-left: 10%; }
 .pad__right__10{ padding-right: 10%; }
@@ -283,6 +284,7 @@ section{
 .pad__tb__5{ padding-top: 5%; padding-bottom: 5%; }
 .pad__tb__10{ padding-top: 10%; padding-bottom: 10%; }
 
+.pad__all__2{ padding: 2%; }
 .pad__all__5{ padding: 5%; }
 .pad__all__10{ padding: 10%; }
 .pad__all__15{ padding: 15%; }

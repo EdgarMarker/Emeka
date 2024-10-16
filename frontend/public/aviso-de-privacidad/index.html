@@ -118,7 +118,7 @@
     <div class="col__left pad__right__5">
       <h3>contacto</h3>
       <h2>Entremos en contacto</h2>
-      <ul role="list">
+      <ul role="list" class="infoList">
         
         <li class="flex flex__col">
             <h4>Teléfono</h4>
@@ -146,42 +146,42 @@
     method="post"
     action="/submit-form"
     onsubmit="return validateForm()">
-    <div class="column__2 width__100 pad__bottom__5">
+    <div class="column__2 width__100 pad__bottom__2">
         <div class="col__left pad__right__5">
-            <label for="nombre" class="width__100 pad__bottom__5">Nombre</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" class="width__100 pad__all__5 " required>
+            <label for="nombre" class="width__100 pad__bottom__2">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" class="width__100 pad__all__2 " required>
         </div>
         <div class="col__right">
-            <label for="telefono" class="width__100 pad__bottom__5">Teléfono</label>
+            <label for="telefono" class="width__100 pad__bottom__2">Teléfono</label>
             <input
                 type="tel"
                 id="telefono"
                 name="telefono"
                 placeholder="Ingresa tu teléfono"
-                class="width__100 pad__all__5 "
+                class="width__100 pad__all__2 "
                 required>
         </div>
     </div>
-    <div class="column__2 width__100 pad__bottom__5">
+    <div class="column__2 width__100 pad__bottom__2">
         <div class="col__left pad__right__5">
-            <label for="email" class="width__100 pad__bottom__5">Correo electrónico</label>
+            <label for="email" class="width__100 pad__bottom__2">Correo electrónico</label>
             <input
                 type="email"
                 id="email"
                 name="email"
                 placeholder="Ingresa tu correo electrónico"
-                class="width__100 pad__all__5 "
+                class="width__100 pad__all__2 "
                 required>
         </div>
         <div class="col__right">
-            <label for="ciudad" class="width__100 pad__bottom__5">Ciudad</label>
-            <input type="text" id="ciudad" name="ciudad" placeholder="Ingresa tu ciudad" class="width__100 pad__all__5 " required>
+            <label for="ciudad" class="width__100 pad__bottom__2">Ciudad</label>
+            <input type="text" id="ciudad" name="ciudad" placeholder="Ingresa tu ciudad" class="width__100 pad__all__2 " required>
         </div>
     </div>
-    <div class="column__2 width__100 pad__bottom__5">
+    <div class="column__2 width__100 pad__bottom__2">
         <div class="col__left pad__right__5">
-            <label for="desarrollo-interes" class="width__100 pad__bottom__5">Desarrollo de interés</label>
-            <select id="desarrollo-interes" name="desarrollo-interes" class="width__100 pad__all__5 " required>
+            <label for="desarrollo-interes" class="width__100 pad__bottom__2">Desarrollo de interés</label>
+            <select id="desarrollo-interes" name="desarrollo-interes" class="width__100 pad__all__2 " required>
                 <option value="">Selecciona una opción</option>
                 <option value="opcion1">Opción 1</option>
                 <option value="opcion2">Opción 2</option>
@@ -189,8 +189,8 @@
             </select>
         </div>
         <div class="col__right">
-            <label for="etapa-decision" class="width__100 pad__bottom__5">Etapa de decisión</label>
-            <select id="etapa-decision" name="etapa-decision" class="width__100 pad__all__5 " required>
+            <label for="etapa-decision" class="width__100 pad__bottom__2">Etapa de decisión</label>
+            <select id="etapa-decision" name="etapa-decision" class="width__100 pad__all__2 " required>
                 <option value="">Selecciona una opción</option>
                 <option value="opcion1">Opción 1</option>
                 <option value="opcion2">Opción 2</option>
@@ -198,16 +198,17 @@
             </select>
         </div>
     </div>
-    <label for="comentarios" class="width__100 pad__bottom__5">Comentarios (opcional)</label>
+    <label for="comentarios" class="width__100 pad__bottom__2">Comentarios (opcional)</label>
     <textarea
         id="comentarios"
         name="comentarios"
         placeholder="Ingresa tus comentarios"
-        class="width__100 pad__all__5  pad__bottom__5"></textarea>
+        class="width__100 pad__all__2  pad__bottom__2"></textarea>
     <button
         type="submit"
-        class="btn"
-        style="background-color: #333; color: white; border: none; cursor: pointer; margin-top: 20px;">ENVIAR MENSAJE</button>
+        class="btn btn__secondary"
+        style="margin-top: 20px;"
+        >ENVIAR MENSAJE</button>
 </form>
 <script>
     function validateForm() { // Sanitize user input

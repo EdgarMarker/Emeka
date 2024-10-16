@@ -78,6 +78,12 @@ footer{
     max-width: 200px;
 }
 
+.infoList{
+    li>a{
+        font-size: var(--size-xs);
+    }
+}
+
 #inner__footer{
     display: flex;
     flex-direction: row;
