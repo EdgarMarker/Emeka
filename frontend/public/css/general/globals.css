@@ -456,7 +456,10 @@ section{
 .card__recentProduct{
     padding: 0;
     position: relative;
+    height: 100%;
     .card__logo{
+        z-index: 1;
+        display: block;
         img{
             width: 100%;
             max-width: 100px;
@@ -475,9 +478,30 @@ section{
     .btn{
         display: none;
     }
-    picture{
+    .card__pic{
         margin: 0;
+        object-fit: cover;
+        height: 100%;
+        picture{
+            margin: 0;
+            height: 100%;
+            img{
+                height: 100%;
+            }
+        }
     }
+}
+.card__recentProduct::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-black);
+    opacity: 0.5;
+    z-index: 0;
 }
 
 /*Forms*/
@@ -555,6 +579,12 @@ section{
 /*  Tableta  */
 @media only screen and (max-width: 1024px) {
     
+    .pad__lr__10{
+        padding: 0 5%;
+    }
+    .pad__all__10{
+        padding: 5%;
+    }
     .column__2{
         flex-direction: column;
     }

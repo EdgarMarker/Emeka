@@ -67,6 +67,12 @@ export default defineType({
       group: 'product',
     }),
     defineField({
+      name: 'titlePage',
+      title: 'Título de la página',
+      type: 'string',
+      group: 'product',
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Imagen principal del producto',
       type: 'image',
@@ -144,6 +150,15 @@ export default defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: 'logoImg2',
+      title: 'Logo obscuro',
+      type: 'image',
+      group: 'logo',
+      options: {
+        hotspot: true,  
+      }
     }),
     defineField({
       name: 'characteristicsTitle',

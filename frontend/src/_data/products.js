@@ -43,6 +43,10 @@ module.exports = async function () {
         "media": asset->{url},
         "alt": asset->{altText}
     },
+    logoImg2{
+        "media": asset->{url},
+        "alt": asset->{altText}
+    },
     characteristicsTitle,
     characteristicsRichText,
     characteristicsSpecifications,

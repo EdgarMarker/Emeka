@@ -76,12 +76,12 @@ permalink: "/productos/{{ producto.slug.current }}/"
         </div>
       </div>
       <div class="col__right introImg">
-        {% if producto.logoImg %}
+        {% if producto.logoImg2 %}
           <picture>
-            {% for format, images in producto.logoImg %}
+            {% for format, images in producto.logoImg2 %}
               <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}"/>
             {% endfor %}
-            <img src="{{ proyecto.logoImg.jpeg[0].url }}" alt="{{ proyecto.logoImg.altText }}"/>
+            <img src="{{ proyecto.logoImg2.jpeg[0].url }}" alt="{{ proyecto.logoImg2.altText }}"/>
           </picture>
         {% endif %}
       </div>
