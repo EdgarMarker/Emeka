@@ -154,6 +154,22 @@ ol:where([role="list"]) {
     text-transform: uppercase;
     font-size: var(--size-xs);
     cursor: pointer;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+}
+.btn::after{
+    content: "";
+    display: block;
+    width: 24px;
+    aspect-ratio: 1/1;
+    background-image: url(/assets/arrow_btn-4.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.btn__secondary::after{
+    background-image: url(/assets/arrow_btn-2.svg);
 }
 
 .btn__hero{
@@ -163,6 +179,7 @@ ol:where([role="list"]) {
 .btn__secondary{
     background-color: var(--color-secondary);
     color: var(--color-primary);
+    border-radius: 8px !important;
 }
 /*  Layout globals  */
 
@@ -384,8 +401,16 @@ section{
         font-size: var(--size-xs);
         text-transform: capitalize;
     }
+    .card__logo{
+        display: none;
+    }
     .card__info{
+        height: fit-content;
+        p, h2{
+            margin: 0;
+        }
         h2{
+            text-transform: uppercase !important;
             font-weight: bold;
         }
     }
@@ -431,14 +456,18 @@ section{
 .card__recentProduct{
     padding: 0;
     position: relative;
-    h2{
-        a{
-            font-size: var(--size-2xl) !important;
+    .card__logo{
+        img{
+            width: 100%;
+            max-width: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    }
+    .card__info{
+        display: none;
     }
     .card__category{
         display: none;
@@ -460,9 +489,6 @@ section{
     }
     input, select, textarea{
         background-color: var(--color-white);
-    }
-    button.btn{
-        border-radius: 0 !important;
     }
 }
 

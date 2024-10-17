@@ -10,6 +10,7 @@ module.exports = async function () {
     title,
     place,
     slug,
+    titlePage,
     publishedAt,
     galleryImages[]{
       "media": asset->{url},

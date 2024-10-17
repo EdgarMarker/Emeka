@@ -81,7 +81,6 @@
             <span></span>
         </div>
     </div>
-    
     <div id="mobile__menu">
         <ul role="list" class="nav__ul nav__ul__left">
     
@@ -94,6 +93,21 @@
         <li>
             <a href="/nosotros/" class="" >
                 Nosotros
+            </a>
+        </li>
+    
+</ul>
+        <ul role="list" class="nav__ul nav__ul__right">
+    
+        <li>
+            <a href="/desarrollos/" class="" >
+                Desarrollos
+            </a>
+        </li>
+    
+        <li>
+            <a href="/contacto/" class="" >
+                Contacto
             </a>
         </li>
     
@@ -124,12 +138,12 @@
     <div class="column__2">
       <div class="col__left">
         <div class="cardProduct__head">
-          <h3>Departamentos</h3>
+          <h3><strong><a href="/desarrollos/">Desarrollos</a></strong> / Kune</h3>
         </div>
         <div class="cardProduct__body">
           <div class="body__info">
-            <h2>Kune</h2>
-            <a href="">VER MAS</a>
+            <h1></h1>
+            <a id="section__product__btn__vermas">VER MAS</a>
           </div>
           <div class="width__10 body__logo" id="hero-logo-product-container" style="background-color: ">
             
@@ -186,13 +200,12 @@
       </div>
     </div>
   </section>
-  <section id="section__product__divisor" class="pad__all__5">
-    <div class="column__1 max1400">
+  <section id="section__product__divisor" class="pad__lr__10 pad__top__5">
+    <div class="column__1">
       
     </div>
   </section>
-
-  <section id="section__product__amenities" class="pad__top__5 pad__lr__5">
+  <section id="section__product__amenities" class="pad__top__5 pad__lr__10">
     <div class="column__1">
       <h3>Amenidades en Kune</h3>
       <h2 class=""></h2>
@@ -218,7 +231,6 @@
         <div id="mapa-test"></div>
       </div>
     </section>
-
     <section id="section__product__gallery" class="pad__all__10">
       <div class="column__1">
         <h3>Galería</h3>
@@ -243,7 +255,7 @@
           <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
             <script>
-              //carrousel
+              // carrousel
               document.addEventListener('DOMContentLoaded', function () {
                 var main = new Splide('#main-carousel', {
                   type: 'fade',
@@ -276,12 +288,10 @@
               const color = containerIcon.getAttribute('data-color');
               containerIcon.style.backgroundColor = color;
             </script>
-
             <script>
               document.addEventListener('DOMContentLoaded', function () {
                 const mapContainer = document.getElementById('map-container-product');
                 const iframeString = mapContainer.getAttribute('data-map-iframe-product');
-
                 if (iframeString) {
                   const parser = new DOMParser();
                   const doc = parser.parseFromString(iframeString, 'text/html');
@@ -307,6 +317,17 @@
                   }
                 }
               });
+            </script>
+            <script>
+              
+              const heroBtn = document.querySelector("#section__product__btn__vermas");
+heroBtn.addEventListener("click", () => {
+  gsap.to(window, {
+    duration: 0.5,
+    scrollTo: "#section__main__image",
+    ease: "power4.out",
+  });
+});
             </script>
             </main>
             <footer>
