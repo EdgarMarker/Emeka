@@ -22,17 +22,17 @@ permalink: "/desarrollos/" # Para paginación amplia descomentar: permalink: "/p
       </div>
     </section>
   {% endfor %}
-  <section id="section__intro" class="pad__bottom__5 pad__lr__10">
+
+  <section id="section__proyectos" class="anchor pad__lr__10 pad__tb__5">
     <div class="column__1">
-      <ul role="list" class="listado__x3 ul__desarrollos">
-        {%- for item in pagination.items -%}
-          <li class="card li__desarrollos">
-            {% include "producto-card.njk" %}
-          </li>
-        {%- endfor %}   
-      </ul>
+        <ul id="listado__desarrollos" role="list">
+            {%- for item in pagination.items -%}
+                {% include "desarrollo-card.njk" %}
+            {%- endfor %}
+        </ul>
     </div>
   </section>
+  
   <!-- //Usar en caso de requerir paginación: <nav>
       <ul>
         {% if pagination.href.previous %}

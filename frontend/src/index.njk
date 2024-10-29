@@ -116,109 +116,81 @@ permalink: "/{{ page.fileSlug }}/"
         <div class="column__2 mar__top__5">
           <div class="col__left flex__justify__sb width__30">
             {% if item.introImg2 %}
-            <picture>
-              {% for format, images in item.introImg2 %}
-              <source
-                srcset="{{ images | srcset }}"
-                sizes="(max-width: 600px) 100vw, 600px"
-                type="image/{{ format }}" />
-              {% endfor %}
-              <img
-                src="{{ item.introImg2.jpeg[0].url }}"
-                alt="{{ item.introImg2Alt }}"
-            /></picture>
+              <picture>
+                {% for format, images in item.introImg2 %}
+                <source srcset="{{ images | srcset }}" sizes="(max-width: 600px) 100vw, 600px" type="image/{{ format }}" />
+                {% endfor %}
+                <img src="{{ item.introImg2.jpeg[0].url }}" alt="{{ item.introImg2Alt }}"/>
+              </picture>
             {% endif %}
           </div>
           <div class="col__right width__70 pad__left__5">
             {% if item.introImg1 %}
-            <picture>
-              {% for format, images in item.introImg1 %}
-              <source
-                srcset="{{ images | srcset }}"
-                sizes="(max-width: 900px) 100vw, 900px"
-                type="image/{{ format }}" />
-              {% endfor %}
-              <img
-                src="{{ item.introImg1.jpeg[0].url }}"
-                alt="{{ item.introImg1Alt }}"
-            /></picture>
+              <picture>
+                {% for format, images in item.introImg1 %}
+                <source srcset="{{ images | srcset }}" sizes="(max-width: 900px) 100vw, 900px" type="image/{{ format }}" />
+                {% endfor %}
+                <img src="{{ item.introImg1.jpeg[0].url }}" alt="{{ item.introImg1Alt }}" />
+              </picture>
             {% endif %}
           </div>
         </div>
       </div>
     </div>
+  </section>
 
+  <section id="section__sliders">
     <div class="intro__slider1">
       {% for band in item.introBand1 %}
-      <picture>
-        {% for format, images in band %}
-        <source
-          srcset="{{ images | srcset }}"
-          sizes="(max-width: 900px) 100vw, 900px"
-          type="image/{{ format }}"
-        />
-        {% endfor %}
-        <img src="{{ band.jpeg[0].url }}" alt="{{ band.altText }}" />
-      </picture>
+        <picture>
+          {% for format, images in band %}
+          <source srcset="{{ images | srcset }}" sizes="(max-width: 900px) 100vw, 900px" type="image/{{ format }}" />
+          {% endfor %}
+          <img src="{{ band.jpeg[0].url }}" alt="{{ band.altText }}" />
+        </picture>
       {% endfor %}
     </div>
-
     <div class="intro__slider2">
       {% for band in item.introBand2 %}
-      <picture>
-        {% for format, images in band %}
-        <source
-          srcset="{{ images | srcset }}"
-          sizes="(max-width: 900px) 100vw, 900px"
-          type="image/{{ format }}"
-        />
-        {% endfor %}
-        <img src="{{ band.jpeg[0].url }}" alt="{{ band.altText }}" />
-      </picture>
+        <picture>
+          {% for format, images in band %}
+          <source srcset="{{ images | srcset }}" sizes="(max-width: 900px) 100vw, 900px" type="image/{{ format }}" />
+          {% endfor %}
+          <img src="{{ band.jpeg[0].url }}" alt="{{ band.altText }}" />
+        </picture>
       {% endfor %}
     </div>
+  </section>
 
-    <div class="column__2 pad__top__5">
-      <div class="col__left pad__right__5">
+  <section id="section__arch">
+    <div class="column__2">
+      <div class="col__left">
         <h2>{{ item.intro2.intro2Title | safe }}</h2>
-        <div>
           {{ item.intro2.intro2RichText | safe }}
-        </div>
       </div>
       <div class="col__right">
         {% if item.intro2.intro2Img %}
-        <picture>
-          {% for format, images in item.intro2.intro2Img %}
-          <source
-            srcset="{{ images | srcset }}"
-            sizes="(max-width: 900px) 100vw, 900px"
-            type="image/{{ format }}" />
-          {% endfor %}
-          <img
-            src="{{ item.intro2.intro2Img.jpeg[0].url }}"
-            alt="{{ item.intro2.intro2ImgAlt }}"
-        /></picture>
+          <picture>
+            {% for format, images in item.intro2.intro2Img %}
+            <source srcset="{{ images | srcset }}" sizes="(max-width: 900px) 100vw, 900px" type="image/{{ format }}" />
+            {% endfor %}
+            <img src="{{ item.intro2.intro2Img.jpeg[0].url }}" alt="{{ item.intro2.intro2ImgAlt }}" />
+          </picture>
         {% endif %}
       </div>
     </div>
   </section>
 
-  <section id="section__recentProducts" class="">
-    <div class="featured-projects column__1 pad__lr__5 pad__tb__5">
-      <h2 class="mar__bottom__5 semiBold">PROYECTOS DESTACADOS</h2>
-      <div class="projects-list column__3 listado__x3">
-        <ul role="list" class="listado_x3 width100 padtop_5">
-          {% for item in item.recentProdRef.recentProducts %}
-          <li class="card card__recentProduct textWhite">
-            {% include "producto-card.njk" %}
-          </li>
-          {% endfor %}
+  <section id="section__recentProducts">
+    <div class="column__1 flex__align__c">
+        <h2>Proyectos más recientes</h2>
+        <ul role="list" class="listado__x3 width__100 pad__top__5">
+            {% for item in item.recentProdRef.recentProducts %}
+                {% include "desarrollo-card.njk" %}
+            {% endfor %}
         </ul>
-      </div>
-      <a href="/desarrollos" class="btn btn__hero mar__top__5">
-        VER TODOS LOS DESARROLLOS
-      </a>
-    </div> 
+        <a href="/productos/" class="btn arrow__right mar__top__5">Ver todos los desarrollos</a>
+    </div>
   </section>
 
   {% endfor %}

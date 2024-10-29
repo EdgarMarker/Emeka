@@ -57,3 +57,51 @@
     }
   }
 }
+
+#section__proyectos{
+  .column__1{
+    #listado__desarrollos{
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: auto;
+      grid-gap: 50px;
+      grid-auto-rows: auto;
+      padding: 0 0%;
+      width: 100%;
+      li{
+        grid-column: span 5;
+        grid-row: span 1;
+        margin-bottom: 0%;
+        margin-left: 0%;
+        opacity: 1;
+        transform-origin: center bottom;
+      }
+      li:nth-child(5n+2){
+        grid-column: span 5;
+        grid-row: span 1;
+        margin-left: 20%;
+        margin-top: 50%;
+      }
+      li:nth-child(5n+3){
+        grid-column: span 10;
+        grid-row: span 1;
+        margin-right: 20%;
+        margin-left: 35%;
+        margin-top: 10%;
+      }
+      li:nth-child(5n+4){
+        grid-column: span 5;
+        grid-row: span 1;
+        margin-left: 0%;
+        margin-right: 10%;
+        margin-top: 50%;
+      }
+      li:nth-child(5n+5){
+        grid-column: span 5;
+        grid-row: span 1;
+        margin-left: 20%;
+        margin-top: 10%;
+      }
+    }
+  }
+}

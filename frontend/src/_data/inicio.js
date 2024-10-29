@@ -82,17 +82,18 @@ module.exports = async function() {
     recentProdRef{
       "recentProducts": recentProducts[]->{
         title,
-    slug,
-    logoImg{
-      "media": asset->{url},
-      "alt": asset->{altText}
-    },
-    publishedAt,
-    "categories": categories[]->title,
-    mainImage{
-      "media": asset->{url},
-      "alt": asset->{altText}
-    },
+        slug,
+        place,
+        logoImg{
+          "media": asset->{url},
+          "alt": asset->{altText}
+        },
+        publishedAt,
+        "categories": categories[]->title,
+        tbImage{
+          "media": asset->{url},
+          "alt": asset->{altText}
+        },
       }
     }
   }`);

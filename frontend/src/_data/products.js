@@ -27,6 +27,10 @@ module.exports = async function () {
         }
       }
     },
+    tbImage{
+      "media": asset->{url},
+      "alt": asset->{altText}
+    },
     mainImage{
       "media": asset->{url},
       "alt": asset->{altText}
@@ -40,36 +44,34 @@ module.exports = async function () {
     introProductWeb,
     introProductBrochure,
     logoImg{
-        "media": asset->{url},
-        "alt": asset->{altText}
+      "media": asset->{url},
+      "alt": asset->{altText}
     },
     logoImg2{
-        "media": asset->{url},
-        "alt": asset->{altText}
+      "media": asset->{url},
+      "alt": asset->{altText}
     },
     characteristicsTitle,
     characteristicsRichText,
     characteristicsSpecifications,
     divisorImg{
+      "media": asset->{url},
+      "alt": asset->altText,
+      "desc": asset->description
+    },
+    amenitiesTitle,
+    "amenities": amenitieList[]->{
+      title,
+      mainImage{
         "media": asset->{url},
-        "alt": asset->{altText},
-        "desc": asset->{description}
+        "alt": asset->{altText}
+      },
     },
-     amenitiesTitle,
-     "amenities": amenities[]{
-        title,
-        icon{
-          "media": asset->{url},
-          "alt": asset->{altText
-        }
-    },
-  },
     mapTitle,
     mapRichText,
     mapLink,
     map,
 }`);
-
   await Promise.all(data.map(processContent)); // Procesa todo el contenido en cada objeto
   return data; // Devuelve el array con las imágenes y textos ya procesados
 };

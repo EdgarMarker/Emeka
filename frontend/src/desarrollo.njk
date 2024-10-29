@@ -1,0 +1,257 @@
+---
+eleventyComputed:
+  title: "{{ products[0].titleseo }}"
+  description: "{{ productos[0].descseo }}"
+  keywords: "{{ productos[0].keyseo }}"
+layout: base.njk
+pagination:
+  data: collections.productos
+  size: 1
+  alias: producto
+permalink: "/desarrollos/{{ producto.slug.current }}/"
+---
+
+<div data-barba="container" data-barba-namespace="producto" data-css="producto" data-js="producto">
+  <section id="section__hero" class="pad__lr__10">
+    {% if producto.mainImage %}
+      <picture class="producto__hero__img">
+        {% for format, images in producto.mainImage %}
+            <source srcset="{{ images | srcset }}" sizes="(max-width: 1920px) 100vw, 1920px" type="image/{{ format }}"/>
+        {% endfor %}
+        <img src="{{ producto.mainImage.webp[0].url }}" alt="{{ producto.mainImage.alt }}"/>
+      </picture>
+    {% endif %}
+
+    <div class="column__2">
+      <div class="col__left">
+        <div class="cardProduct__head">
+          <h3><a href="/desarrollos/">Desarrollos</a> / {{ producto.title }}</h3>
+        </div>
+        <div class="cardProduct__body">
+          <div class="body__info">
+            <h1>{{ producto.titlePage }}</h1>
+            <a id="section__product__btn__vermas">Ver más</a>
+          </div>
+          <div class="width__10 body__logo" id="hero-logo-product-container" style="background-color: {{ producto.color.hex }}">
+              <img src="{{ producto.logoImg.url }}"/>
+          </div>
+        </div>
+      </div>
+      <div class="col__right"></div>
+    </div>
+  </section>
+
+  <section id="section__main__image" class="pad__lr__10 hiddenPseudo ">
+    <div class="column__2">
+      <div class="col__left hiddenPseudo">
+        {% if producto.introImage %}
+          <picture class="producto__hero__img">
+            {% for format, images in producto.introImage %}
+                <source srcset="{{ images | srcset }}" sizes="(max-width: 1920px) 100vw, 1920px" type="image/{{ format }}"/>
+            {% endfor %}
+            <img src="{{ producto.introImage.jpeg[0].url }}" alt="{{ producto.introImage.alt }}"/>
+          </picture>
+        {% endif %}
+      </div>
+      <div class="col__right pad__left__5 hiddenPseudo">
+        <h3 class="subtitle">Descripción general</h3>
+        <h2>{{ producto.introTitle }}</h2>
+        <div>{{ producto.introRichText | safe }}</div>
+        {% if producto.introProductWeb %}
+        <a href="{{ producto.introProductWeb }}" class="btn btn__secondary" target="_blank">Abrir sitio web de {{ producto.title }}</a>
+        {% endif %}
+        {% if producto.introProductBrochure %}
+        <a class="brochure" href="{{ producto.introProductBrochure }}" target="_blank">Descargar brochure de {{ producto.title }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section id="section__product__characteristics">
+    <div class="column__2 block1">
+      <div class="col__left">
+          {{ producto.characteristicsTitle | safe }}
+      </div>
+      <div class="col__right introImg">
+        <img src="{{ producto.logoImg2.url }}"/>
+      </div>
+    </div>
+    <div class="column__2 block2">
+      <div class="col__left">
+        <h3 class="subtitle">Características</h3>
+        <div>{{ producto.characteristicsRichText | safe }}</div>
+      </div>
+      <div class="col__right">
+        <h3 class="subtitle">Especificaciones</h3>
+        <div>
+          {{ producto.characteristicsSpecifications | safe }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section__product__divisor" class="pad__lr__10 pad__top__5">
+    
+    <span>{{ producto.divisorImg.desc }} {{ producto.divisorImg.description }} {{ producto.divisorImg.desc.description }}</span>
+    
+    <div class="column__1">
+      {% if producto.divisorImg %}
+        <picture class="producto__hero__img">
+          {% for format, images in producto.divisorImg %}
+            <source srcset="{{ images | srcset }}" sizes="(max-width: 1920px) 100vw, 1920px" type="image/{{ format }}"/>
+          {% endfor %}
+          <img src="{{ producto.divisorImg.jpeg[0].url }}" alt="{{ producto.divisorImg.alt[0].altText }}" />
+        </picture>
+      {% endif %}
+    </div>
+  </section>
+
+  <section id="section__product__amenities" class="pad__top__5 pad__lr__10">
+    <div class="column__1">
+      <h3 class="subtitle">Amenidades en {{ producto.title }}</h3>
+      <h2 class="">{{ producto.amenitiesTitle }}</h2>
+      <ul role="list">
+          {% for amenidad in producto.amenities %}
+            <li class="flex flex__col flex__align__c">
+                <img src="{{ amenidad.mainImage.url }}" alt="{{ amenidad.title }}"/>
+              <h3>{{ amenidad.title }}</h3>
+            </li>
+          {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section id="section__product__map" class="pad__top__5 pad__lr__10 hiddenPseudo">
+    <div class="column__2">
+      <div class="col__left">
+        <h3 class="subtitle">Ubicación</h3>
+        <h2>{{ producto.mapTitle }}</h2>
+        <div>{{ producto.mapRichText | safe }}</div>
+        <a class="btn btn__secondary" href="{{ producto.mapLink }}" target="_blank">Abrir en Google Maps</a>
+      </div>
+      <div class="col__right">
+        <div id="map-container-product" data-map-iframe-product="{{ producto.map | escape }}"></div>
+        <div id="mapa-test"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section__product__gallery" class="">
+    <div class="column__1">
+      <h3 class="subtitle">Galería</h3>
+      <h2>Imágenes de {{ producto.title }}</h2>
+      <div id="main-carousel" class="splide" role="group">
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for item in producto.galleryImages %}
+              <li class="splide__slide">
+                <picture>
+                  {% for format, images in item %}
+                    <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
+                  {% endfor %}
+                <img src="{{ item.webp[0].url }}" alt="{{ producto.gallery.altText }}"></picture>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div id="thumbnail-carousel" class="splide" role="group">
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for item in producto.galleryImages %}
+              <li class="splide__slide">
+                <picture>
+                    {% for format, images in item %}
+                      <source srcset="{{ images | srcset }}" sizes="(max-width: 1200px) 100vw, 1200px" type="image/{{ format }}">
+                    {% endfor %}
+                    <img src="{{ item.webp[0].url }}" alt="{{ producto.gallery.altText }}">
+                  </picture>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<script>
+  // carrousel
+  document.addEventListener('DOMContentLoaded', function () {
+    var main = new Splide('#main-carousel', {
+      type: 'fade',
+      rewind: true,
+      pagination: false,
+      arrows: true
+    });
+    var thumbnails = new Splide('#thumbnail-carousel', {
+      fixedWidth: 100,
+      fixedHeight: 60,
+      gap: 10,
+      rewind: true,
+      pagination: false,
+      isNavigation: true,
+      arrows: false,
+      breakpoints: {
+        600: {
+          fixedWidth: 60,
+          fixedHeight: 44
+        }
+      }
+    });
+    main.sync(thumbnails);
+    main.mount();
+    thumbnails.mount();
+  });
+  console.log(data)
+  // get color
+  const containerIcon = document.getElementById('hero-logo-product-container');
+  const color = containerIcon.getAttribute('data-color');
+  containerIcon.style.backgroundColor = color;
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const mapContainer = document.getElementById('map-container-product');
+    const iframeString = mapContainer.getAttribute('data-map-iframe-product');
+    if (iframeString) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(iframeString, 'text/html');
+      const iframe = doc.querySelector('iframe');
+      if (iframe) {
+        // Create a new iframe and copy attributes
+        const newIframe = document.createElement('iframe');
+        Array.from(iframe.attributes).forEach(attr => {
+          newIframe.setAttribute(attr.name, attr.value);
+        });
+        // Set desired attributes
+        newIframe.width = '100%';
+        newIframe.height = '100%';
+        newIframe.style.border = '0';
+        newIframe.allowFullscreen = true;
+        newIframe.loading = 'lazy';
+        newIframe.referrerPolicy = 'no-referrer-when-downgrade';
+        // Set title for accessibility
+        if (! newIframe.hasAttribute('title')) {
+          newIframe.title = 'Google Maps';
+        }
+        mapContainer.appendChild(newIframe);
+      }
+    }
+  });
+</script>
+
+<script>          
+  const heroBtn = document.querySelector("#section__product__btn__vermas");
+  heroBtn.addEventListener("click", () => {
+    gsap.to(window, {
+      duration: 0.5,
+      scrollTo: "#section__main__image",
+      ease: "power4.out",
+    });
+  });
+</script>
